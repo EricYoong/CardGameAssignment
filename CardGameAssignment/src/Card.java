@@ -2,55 +2,42 @@ import java.util.Arrays;
 import java.util.Collections;
 
 public class Card {
-	private int[] card = new int[52];
-	private String[] suits = {"Spades", "Hearts", "Clubs", "Diamonds"};
-	private String[] ranks = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9",
-            "10", "Jack", "Queen", "King"};
-    
-	
-	
-	public void showCardInfo() {
-		for(int i = 0;i<10;i++) {
-			String suit = suits[card[i]/13];
-			String rank = ranks[card[i]%13];
-			System.out.println("Card number " + card[i] + ": " 
-			        + rank + " of " + suit);
-		}
-		
-	}
-	
-	public String getSuits(int i) {
-		return suits[i];
-	}
-	
-	public String getRanks(int i) {
-		return ranks[i];
-	}
-	
-	public int[] getCard() {
-		int[] tmp = new int[10];
-		
-		for(int i = 0 ; i< 10; i++) {
-		}
-		
-		shuffle();
-		
-		return tmp;
-	}
-	
-//	Shuffle the cards
-	public void shuffle() {
-		Collections.shuffle(Arrays.asList(card));
-	}
-	
-//	Initialize the card
-	public Card() {
-		for(int i = 0;i < card.length;i++) {
-			card[i] = i;
-		}
-		shuffle();
-	}
-	
-	
-	
+    private Suits mSuit;
+    private Ranks mRank;
+
+    public static enum Suits {
+        Spade, Diamond, Club, Heart
+    }
+
+    public static enum Ranks {
+        Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King
+    }
+
+    public Suits getSuits() {
+        return mSuit;
+    }
+
+    public Ranks getRanks() {
+        return mRank;
+    }
+
+    public int getCard() {
+        return mRank.ordinal() + 2;
+    }
+
+    public Card(){
+
+    }
+
+    //	Initialize the card
+    public Card(Suits suit, Ranks rank) {
+        this.mSuit = suit;
+        this.mRank = rank;
+    }
+
+    public boolean equals(Object o) {
+        return (o != null && o instanceof Card && ((Card) o).mRank == mRank && ((Card) o).mSuit == mSuit);
+    }
 }
+
+
