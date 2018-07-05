@@ -1,21 +1,23 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Arrays;
 import java.util.Collections;
 
 public class Hand extends DeckOfCards {
 
-    private ArrayList<Card> Hands = new ArrayList<Card>();
+    private ArrayList<Card> Hands;
+
+    private ArrayList<Card> cards;
+    private String handCards;
 
 
+    //Constuctor
     public Hand() {
-        clear();
-        for (int i = 0; i < 10; i++) {
-            Hands.add(pullRandom());
-        }
+        Hands = new ArrayList<Card>(10);
     }
 
     public void clear() {
-        Hands .clear();
+        Hands.clear();
     }
 
     public void addCard() {
@@ -31,8 +33,9 @@ public class Hand extends DeckOfCards {
         }
     }
 
-    public void sortBySuit(){
-       Collections.sort(Hands.sort());
+    public List<Card> sortBySuit(){
+      Collections.sort(Hands);
+      return Hands;
     }
 
 }

@@ -3,18 +3,10 @@ import java.util.Collections;
 
 public class Player {
 
+    private Hand handCard;
 
     public Player() {
-        super();
-    }
-
-    public Player(DeckOfCards tmp) {
-        setHand(tmp);
-    }
-
-
-    public Card[] getHand() {
-        return hand;
+        handCard = new Hand();
     }
 
     public void showHand(){
@@ -22,16 +14,6 @@ public class Player {
         }
     }
 
-
-    public void setHand(DeckOfCards tmp) {
-        for (int i = 0; i < 10; i++) {
-            hand[i] = tmp.pullRandom();
-        }
-    }
-
-    public void sort() {
-
-    }
 
 //    public int findCard( Card card ) {
 //        return hand.indexOf( card );
@@ -46,14 +28,6 @@ public class Player {
 //    }
 
 
-
-    public static void main(String[] args) {
-
-        DeckOfCards d1 = new DeckOfCards();
-        Player test = new Player();
-
-
-    }
 
 
 }

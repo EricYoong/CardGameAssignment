@@ -1,5 +1,5 @@
 
-public class Card {
+public class Card implements Comparable<Card> {
     private Suits mSuit;
     private Ranks mRank;
 
@@ -39,6 +39,29 @@ public class Card {
     @Override
     public boolean equals(Object o) {
         return (o != null && o instanceof Card && ((Card) o).mRank == mRank && ((Card) o).mSuit == mSuit);
+    }
+
+    @Override
+    public int compareTo(Card compareCard) {
+        Card compareToCard = compareCard;
+        Suits thisSuit = this.mSuit;
+        Ranks thisRank = this.mRank;
+
+        if (thisSuit.ordinal() == compareToCard.getSuits().ordinal() &&
+                thisRank.ordinal() == compareToCard.getRanks().ordinal()) {
+            return 0;
+        }
+        else if (thisSuit.ordinal() == compareToCard.getSuits().ordinal()) {
+            if (thisRank.ordinal() > compareToCard.getRanks().ordinal()) {
+                return 1;
+            }
+            else {
+                return -1;
+            }
+        }
+        else {
+            return -1;
+        }
     }
 }
 
