@@ -6,8 +6,6 @@ import java.util.Collections;
 public class Hand extends DeckOfCards {
 
     private ArrayList<Card> Hands;
-
-    private ArrayList<Card> cards;
     private String handCards;
 
 
