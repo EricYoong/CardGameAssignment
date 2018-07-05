@@ -53,4 +53,8 @@ public class DeckOfCards extends Card {
         Card tmp = mCards.get(randInt(0, mCards.size() - 1));
         return tmp;
     }
+
+    public boolean isEmpty(){
+        return mCards.isEmpty();
+    }
 }
