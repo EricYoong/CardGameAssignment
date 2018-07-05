@@ -3,13 +3,22 @@ public class Card {
     private Suits mSuit;
     private Ranks mRank;
 
+    public Card() {
+        super();
+    }
 
-//    Set a constance for the suits
+    //	Initialize the card
+    public Card(Suits suit, Ranks rank) {
+        this.mSuit = suit;
+        this.mRank = rank;
+    }
+
+    //    Set a constance for the suits
     public static enum Suits {
         Spade, Diamond, Club, Heart
     }
 
-//    Set a constance for the Ranks
+    //    Set a constance for the Ranks
     public static enum Ranks {
         Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King
     }
@@ -22,19 +31,9 @@ public class Card {
         return mRank;
     }
 
-
-    public int getCard() {
+    //    Get the value of the Card
+    public int getValue() {
         return mRank.ordinal() + 1;
-    }
-
-    public Card(){
-        super();
-    }
-
-    //	Initialize the card
-    public Card(Suits suit, Ranks rank) {
-        this.mSuit = suit;
-        this.mRank = rank;
     }
 
     @Override

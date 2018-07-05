@@ -27,19 +27,6 @@ public class DeckOfCards extends Card {
         }
     }
 
-    public static void main(String[] args) {
-        Card hand;
-        DeckOfCards d1 = new DeckOfCards();
-        hand = d1.pullRandom();
-        d1.pullRandom();
-        d1.getRandom();
-
-        int tmp = hand.getCard();
-        d1.getRandom();
-
-
-    }
-
 //    Get a random card
     public int randInt(int min, int max){
         int randNum = mRandom.nextInt((max-min)+1)+min;
@@ -69,4 +56,6 @@ public class DeckOfCards extends Card {
     public boolean isEmpty(){
         return mCards.isEmpty();
     }
+
+
 }
