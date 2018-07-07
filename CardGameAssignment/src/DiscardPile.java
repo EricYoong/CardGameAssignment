@@ -13,6 +13,16 @@ public class DiscardPile extends DeckOfCards{
         pileCard.add(card);
     }
 
+    public void displayPile(){
+        if(pileCard.isEmpty()){
+            System.out.println("There are no pile Card.");
+        }else
+        {
+            System.out.println("The discard pile is: " + pileCard.get(pileCard.size()-1));
+        }
+
+    }
+
     public void resetPile(){
         for(int i = 0;i<pileCard.size()-1;i++){
             tmpPile.add(pileCard.get(i));
