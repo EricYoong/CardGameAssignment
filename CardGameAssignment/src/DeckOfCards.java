@@ -44,6 +44,13 @@ public class DeckOfCards extends Card {
         return tmp;
     }
 
+//    When the deck reach 0 it will add the card from the pile card
+    public void addPile(ArrayList<Card> pileCard){
+        for(int i=0;i<pileCard.size();i++){
+            mCards.add(pileCard.get(i));
+        }
+    }
+
 //    Get a random card and still keep in the deck
     public Card getRandom() {
         if (mCards.isEmpty())
