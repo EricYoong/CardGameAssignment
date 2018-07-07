@@ -3,10 +3,13 @@ import java.util.Collections;
 
 public class Player {
 
-    private Hand handCard;
+    private ArrayList<Card> handCard;
+    private ArrayList<Card> setCard;
+
 
     public Player() {
-        handCard = new Hand();
+        handCard = new ArrayList<Card>();
+        setCard = new ArrayList<Card>();
     }
 
     public void showHand(){
@@ -15,9 +18,9 @@ public class Player {
     }
 
 
-//    public int findCard( Card card ) {
-//        return hand.indexOf( card );
-//    }
+    public int findCard( Card card ) {
+        return handCard.indexOf( card );
+    }
 //
 //    public boolean replaceCard( Card oldCard, Card replacementCard ) {
 //        int location = findCard( oldCard );
