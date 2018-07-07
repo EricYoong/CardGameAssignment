@@ -6,7 +6,7 @@ public class DiscardPile extends DeckOfCards{
 
     public DiscardPile(){
         pileCard = new ArrayList<Card>();
-        pileCard.add(super.getRandom());
+        pileCard.add(super.pullRandom());
     }
 
     public void addPile(Card card){
@@ -20,7 +20,6 @@ public class DiscardPile extends DeckOfCards{
         {
             System.out.println("The discard pile is: " + pileCard.get(pileCard.size()-1));
         }
-
     }
 
     public void resetPile(){

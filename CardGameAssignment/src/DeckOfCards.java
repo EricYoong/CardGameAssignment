@@ -51,15 +51,6 @@ public class DeckOfCards extends Card {
         }
     }
 
-//    Get a random card and still keep in the deck
-    public Card getRandom() {
-        if (mCards.isEmpty())
-            return null;
-
-        Card tmp = mCards.get(randInt(0, mCards.size() - 1));
-        return tmp;
-    }
-
     public boolean isEmpty(){
         return mCards.isEmpty();
     }
