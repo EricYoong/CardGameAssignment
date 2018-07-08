@@ -32,7 +32,7 @@ public class Game {
         p1 = new DiscardPile(d1);
         for(int i = 0;i < player.size();i++){
             int tmp;
-            int[] tmpSet;
+            int tmpSet;
             player.get(i).showHand();
             choice = (Integer) JOptionPane.showInputDialog(null, "Select number of player:", "NumberOfPlayer", JOptionPane.INFORMATION_MESSAGE, null, possibilities, "Numbers");
             if(choice == 1){
