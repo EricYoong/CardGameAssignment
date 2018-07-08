@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b8f71185-1c4c-4fbd-a7f9-3870352a1030" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Flush.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Flush.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SameKind.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SameKind.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SetPlayerValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SetPlayerValidation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Straight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Straight.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,6 +13,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/CardGameAssignment$Game.ic" NAME="Game Coverage Results" MODIFIED="1531038127221" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -36,9 +36,10 @@
       <file leaf-file-name="Card.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Card.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="25" column="29" lean-forward="true" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+            <state relative-caret-position="117">
+              <caret line="21" column="24" lean-forward="true" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
               <folding>
+                <element signature="e#551#552#0" expanded="true" />
                 <element signature="e#579#580#0" expanded="true" />
                 <element signature="e#610#611#0" expanded="true" />
                 <element signature="e#638#639#0" expanded="true" />
@@ -47,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="64" column="4" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="4" />
+            <state relative-caret-position="126">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
               <folding>
                 <element signature="e#1194#1195#0" expanded="true" />
                 <element signature="e#1239#1240#0" expanded="true" />
@@ -66,6 +67,15 @@
                 <element signature="e#1618#1619#0" expanded="true" />
                 <element signature="e#1672#1673#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RankComparator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/RankComparator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="32">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
         </entry>
@@ -119,9 +129,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Game.java">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="128">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#186#194#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -141,7 +159,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/CardSuit.java" />
         <option value="$PROJECT_DIR$/src/Hand.java" />
-        <option value="$PROJECT_DIR$/src/Game.java" />
         <option value="$PROJECT_DIR$/src/HandValidations.java" />
         <option value="$PROJECT_DIR$/src/Pair.java" />
         <option value="$PROJECT_DIR$/src/SetPlayer.java" />
@@ -156,6 +173,7 @@
         <option value="$PROJECT_DIR$/src/SameKind.java" />
         <option value="$PROJECT_DIR$/src/Flush.java" />
         <option value="$PROJECT_DIR$/src/Player.java" />
+        <option value="$PROJECT_DIR$/src/Game.java" />
       </list>
     </option>
   </component>
@@ -310,7 +328,7 @@
       <workItem from="1530935284899" duration="1914000" />
       <workItem from="1530961789110" duration="5146000" />
       <workItem from="1531020954841" duration="9275000" />
-      <workItem from="1531034636118" duration="1636000" />
+      <workItem from="1531034636118" duration="3279000" />
     </task>
     <task id="LOCAL-00001" summary="Third Commit">
       <created>1530764073032</created>
@@ -389,11 +407,18 @@
       <option name="project" value="LOCAL" />
       <updated>1531030161847</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Add few Functions">
+      <created>1531036568993</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1531036568993</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43847000" />
+    <option name="totallyTimeSpent" value="45490000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -401,6 +426,7 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="7" />
+      <window_info anchor="bottom" id="Messages" order="0" sideWeight="0.49926794" weight="0.32826748" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
@@ -408,25 +434,25 @@
       <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49919137" weight="0.30800405" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49919137" visible="true" weight="0.30683625" />
+      <window_info anchor="right" id="Coverage" side_tool="true" weight="0.329429" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13909224" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13909224" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.39817628" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.3974563" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info active="true" anchor="bottom" id="Find" order="2" visible="true" weight="0.32928064" />
-      <window_info anchor="bottom" id="Messages" order="0" sideWeight="0.49926794" weight="0.32826748" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -443,7 +469,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="19" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Game.java</url>
+          <line>13</line>
+          <properties />
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="20" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -452,6 +486,7 @@
         <state relative-caret-position="323">
           <caret line="21" selection-start-line="21" selection-end-line="21" />
           <folding>
+            <element signature="e#551#552#0" expanded="true" />
             <element signature="e#579#580#0" expanded="true" />
             <element signature="e#610#611#0" expanded="true" />
             <element signature="e#638#639#0" expanded="true" />
@@ -498,6 +533,7 @@
         <state relative-caret-position="646">
           <caret line="46" column="36" selection-start-line="46" selection-start-column="36" selection-end-line="46" selection-end-column="36" />
           <folding>
+            <element signature="e#551#552#0" expanded="true" />
             <element signature="e#579#580#0" expanded="true" />
             <element signature="e#610#611#0" expanded="true" />
             <element signature="e#638#639#0" expanded="true" />
@@ -544,6 +580,7 @@
         <state relative-caret-position="187">
           <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
           <folding>
+            <element signature="e#551#552#0" expanded="true" />
             <element signature="e#579#580#0" expanded="true" />
             <element signature="e#610#611#0" expanded="true" />
             <element signature="e#638#639#0" expanded="true" />
@@ -589,6 +626,7 @@
         <state relative-caret-position="176">
           <caret line="11" selection-start-line="11" selection-end-line="11" />
           <folding>
+            <element signature="e#551#552#0" expanded="true" />
             <element signature="e#579#580#0" expanded="true" />
             <element signature="e#610#611#0" expanded="true" />
             <element signature="e#638#639#0" expanded="true" />
@@ -613,6 +651,7 @@
         <state relative-caret-position="608">
           <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
           <folding>
+            <element signature="e#551#552#0" expanded="true" />
             <element signature="e#579#580#0" expanded="true" />
             <element signature="e#610#611#0" expanded="true" />
             <element signature="e#638#639#0" expanded="true" />
@@ -645,7 +684,6 @@
     <entry file="file://$PROJECT_DIR$/src/Hand.java" />
     <entry file="file://$PROJECT_DIR$/src/HandValidations.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_172/src.zip!/java/lang/Comparable.java" />
-    <entry file="file://$PROJECT_DIR$/src/RankComparator.java" />
     <entry file="file://$PROJECT_DIR$/src/DeckOfCards.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="549">
@@ -660,21 +698,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DiscardPile.java" />
     <entry file="file://$PROJECT_DIR$/src/SuitComparator.java" />
-    <entry file="file://$PROJECT_DIR$/src/Card.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="25" column="29" lean-forward="true" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
-          <folding>
-            <element signature="e#579#580#0" expanded="true" />
-            <element signature="e#610#611#0" expanded="true" />
-            <element signature="e#638#639#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SameKind.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -714,10 +737,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Card.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="21" column="24" lean-forward="true" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+          <folding>
+            <element signature="e#551#552#0" expanded="true" />
+            <element signature="e#579#580#0" expanded="true" />
+            <element signature="e#610#611#0" expanded="true" />
+            <element signature="e#638#639#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RankComparator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="64" column="4" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="4" />
+        <state relative-caret-position="126">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
           <folding>
             <element signature="e#1194#1195#0" expanded="true" />
             <element signature="e#1239#1240#0" expanded="true" />
@@ -731,6 +774,17 @@
             <element signature="e#1573#1574#0" expanded="true" />
             <element signature="e#1618#1619#0" expanded="true" />
             <element signature="e#1672#1673#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#186#194#0" expanded="true" />
           </folding>
         </state>
       </provider>

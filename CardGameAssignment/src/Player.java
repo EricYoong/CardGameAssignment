@@ -6,6 +6,7 @@ public class Player{
 
     private List<Card> handCard;
     private List<Card> setCard;
+    private String name;
     private double score = 0;
     private RankComparator rankComparator = new RankComparator();
     private SuitComparator suitComparator = new SuitComparator();
@@ -15,12 +16,13 @@ public class Player{
         super();
     }
 
-    public Player(DeckOfCards d1) {
+    public Player(String name, DeckOfCards d1) {
         handCard = new ArrayList<Card>();
         for (int i = 0; i < 10; i++) {
             addCards(d1);
         }
         setCard = new ArrayList<Card>();
+        this.name = name;
     }
 
     public void showHand() {
