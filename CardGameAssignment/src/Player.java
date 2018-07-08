@@ -1,11 +1,14 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Player extends DeckOfCards {
+public class Player extends SetPlayer{
 
     private ArrayList<Card> handCard;
     private ArrayList<Card> setCard;
 
+    public Player(){
+        super();
+    }
 
     public Player(DeckOfCards d1) {
         handCard = new ArrayList<Card>();
