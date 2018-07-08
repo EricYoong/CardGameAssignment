@@ -1,14 +1,17 @@
 import java.util.ArrayList;
 import java.util.List;
 
-abstract public class SetPlayerValidation{
+abstract public class SetPlayerValidation extends Set{
     private double score;
-    private List<Card> set = new ArrayList<Card>();
-    private SameKind s1 = new SameKind();
 
-    public void CheckSet(List<Card> Card){
-        if(s1.comparePair(Card)){
 
+    public double getScore(){
+        return score;
+    }
+
+    public void checkSet(List<Card> Card){
+        if(isSameKind(Card)){
+            score = 1.5 * Card.size();
         }
     }
 }

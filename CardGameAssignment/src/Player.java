@@ -2,12 +2,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Player extends SetPlayerValidation{
+public class Player{
 
     private List<Card> handCard;
     private List<Card> setCard;
     private RankComparator rankComparator = new RankComparator();
     private SuitComparator suitComparator = new SuitComparator();
+    private SetPlayerValidation valid;
 
     public Player(){
         super();
@@ -33,7 +34,7 @@ public class Player extends SetPlayerValidation{
 
     public void addSet(ArrayList<Card> tmpSet) {
         sortByRank(tmpSet);
-        super.CheckSet(tmpSet);
+        valid.checkSet(tmpSet);
 
     }
 

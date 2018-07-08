@@ -25,13 +25,10 @@ public class DiscardPile extends DeckOfCards {
         for (int i = 0; i < pileCard.size() - 1; i++) {
             tmpPile.add(pileCard.get(i));
         }
-
         super.addPile(tmpPile);
-
         for (int i = 0; i < tmpPile.size(); i++) {
             pileCard.remove(tmpPile.size() - i);
         }
-
         tmpPile.clear();
     }
 
