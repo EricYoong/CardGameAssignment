@@ -16,6 +16,7 @@ abstract public class SetPlayerValidation extends Set {
             score = 1.0 * Card.size();
         } else if (isStraight(Card)) {
             score = 1.2 * Card.size();
-        }
+        }else
+            System.out.println("There are no set Available!");
     }
 }

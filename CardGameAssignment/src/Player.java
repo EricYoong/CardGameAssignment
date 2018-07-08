@@ -39,6 +39,16 @@ public class Player{
         return score;
     }
 
+    public void findSet(int[] tmp){
+
+        ArrayList<Card> tmpCard = new ArrayList<Card>();
+        for(int i = 0;i< tmp.length;i++){
+            tmpCard.add(findCard(tmp[i]));
+        }
+        addSet(tmpCard);
+
+    }
+
     public void addSet(ArrayList<Card> tmpSet) {
         sortByRank(tmpSet);
         valid.checkSet(tmpSet);
