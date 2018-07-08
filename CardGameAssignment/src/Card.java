@@ -50,16 +50,13 @@ public class Card implements Comparable<Card> {
         if (thisSuit.ordinal() == compareToCard.getSuits().ordinal() &&
                 thisRank.ordinal() == compareToCard.getRanks().ordinal()) {
             return 0;
-        }
-        else if (thisSuit.ordinal() == compareToCard.getSuits().ordinal()) {
+        } else if (thisSuit.ordinal() == compareToCard.getSuits().ordinal()) {
             if (thisRank.ordinal() > compareToCard.getRanks().ordinal()) {
                 return 1;
-            }
-            else {
+            } else {
                 return -1;
             }
-        }
-        else {
+        } else {
             return -1;
         }
     }

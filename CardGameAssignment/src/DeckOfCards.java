@@ -14,7 +14,7 @@ public class DeckOfCards extends Card {
         reset();
     }
 
-//    Reset the whole deck
+    //    Reset the whole deck
     public void reset() {
         mPulledCards.clear();
         mCards.clear();
@@ -27,31 +27,31 @@ public class DeckOfCards extends Card {
         }
     }
 
-//    Get a random card
-    public int randInt(int min, int max){
-        int randNum = mRandom.nextInt((max-min)+1)+min;
+    //    Get a random card
+    public int randInt(int min, int max) {
+        int randNum = mRandom.nextInt((max - min) + 1) + min;
         return randNum;
     }
 
-//    Get a random card and then remove from the deck
+    //    Get a random card and then remove from the deck
     public Card pullRandom() {
         if (mCards.isEmpty())
             return null;
 
-        Card tmp = mCards.remove(randInt(0,mCards.size()-1));
-        if(tmp!=null)
+        Card tmp = mCards.remove(randInt(0, mCards.size() - 1));
+        if (tmp != null)
             mPulledCards.add(tmp);
         return tmp;
     }
 
-//    When the deck reach 0 it will add the card from the pile card
-    public void addPile(ArrayList<Card> pileCard){
-        for(int i=0;i<pileCard.size();i++){
+    //    When the deck reach 0 it will add the card from the pile card
+    public void addPile(ArrayList<Card> pileCard) {
+        for (int i = 0; i < pileCard.size(); i++) {
             mCards.add(pileCard.get(i));
         }
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return mCards.isEmpty();
     }
 
