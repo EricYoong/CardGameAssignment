@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class DiscardPile{
+public class DiscardPile {
     private ArrayList<Card> pileCard;
     private ArrayList<Card> tmpPile;
 
@@ -22,6 +22,9 @@ public class DiscardPile{
     }
 
     public void resetPile(DeckOfCards d1) {
+        if (pileCard.isEmpty())
+            System.out.println("There are no pile card.");
+
         for (int i = 0; i < pileCard.size() - 1; i++) {
             tmpPile.add(pileCard.get(i));
         }
