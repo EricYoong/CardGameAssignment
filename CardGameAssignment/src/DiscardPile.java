@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 public class DiscardPile extends DeckOfCards {
-    ArrayList<Card> pileCard;
-    ArrayList<Card> tmpPile;
+    private ArrayList<Card> pileCard;
+    private ArrayList<Card> tmpPile;
 
     public DiscardPile() {
         pileCard = new ArrayList<Card>();

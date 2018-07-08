@@ -32,12 +32,9 @@ public class Player extends SetPlayerValidation{
     }
 
     public void addSet(ArrayList<Card> tmpSet) {
-        for (int i = 0; i < tmpSet.size(); i++) {
-            if (!setCard.contains(tmpSet.get(tmpSet.size() - i))) {
-                setCard.add(tmpSet.get(tmpSet.size() - i));
-                removeCard(tmpSet.get(tmpSet.size() - i));
-            }
-        }
+        sortByRank(tmpSet);
+        super.CheckSet(tmpSet);
+
     }
 
     public void addCards(DeckOfCards d1) {
