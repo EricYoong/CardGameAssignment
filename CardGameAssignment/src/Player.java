@@ -1,10 +1,13 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
-public class Player extends SetPlayer{
+public class Player extends SetPlayerValidation{
 
-    private ArrayList<Card> handCard;
-    private ArrayList<Card> setCard;
+    private List<Card> handCard;
+    private List<Card> setCard;
+    private RankComparator rankComparator = new RankComparator();
+    private SuitComparator suitComparator = new SuitComparator();
 
     public Player(){
         super();
@@ -53,5 +56,11 @@ public class Player extends SetPlayer{
         handCard.remove(card);
     }
 
+    public void sortByRank(List<Card> Card){
+        Collections.sort(Card, rankComparator);
+    }
+    public void sortBySuit(List<Card> Card){
+        Collections.sort(Card, suitComparator);
+    }
 
 }
