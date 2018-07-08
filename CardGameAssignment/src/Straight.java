@@ -1,13 +1,19 @@
 import java.util.List;
 
-abstract public class Straight extends Set{
+abstract public class Straight extends Set {
 
-    public boolean isStraight(List<Card> sameKind) {
-        Card tmp = sameKind.get(0);
-        for (int i = 0; i < sameKind.size(); i++) {
-            if(tmp.getValue() != sameKind.get(i).getValue()){
+    public boolean isStraight(List<Card> straight) {
+        if (straight.size() < 3)
+            return false;
+
+        for (int i = 0; i < straight.size(); i++) {
+            Card tmp = straight.get(i);
+            if (straight.get(i + 1) != null) {
+                if (tmp.getValue() > straight.get(i + 1).getValue()) {
+                    return false;
+                }
+            } else
                 return false;
-            }
         }
         return true;
     }

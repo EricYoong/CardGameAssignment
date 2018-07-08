@@ -62,6 +62,7 @@ public class Player{
     public void sortByRank(List<Card> Card){
         Collections.sort(Card, rankComparator);
     }
+
     public void sortBySuit(List<Card> Card){
         Collections.sort(Card, suitComparator);
     }

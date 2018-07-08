@@ -1,21 +1,21 @@
 import java.util.ArrayList;
 import java.util.List;
 
-abstract public class SetPlayerValidation extends Set{
+abstract public class SetPlayerValidation extends Set {
     private double score;
 
 
-    public double getScore(){
+    public double getScore() {
         return score;
     }
 
-    public void checkSet(List<Card> Card){
-        if(isSameKind(Card)){
+    public void checkSet(List<Card> Card) {
+        if (isSameKind(Card)) {
             score = 1.5 * Card.size();
-        }else if(isFlush(Card)){
-
-        }else if(isStraight(Card)){
-
+        } else if (isFlush(Card)) {
+            score = 1.0 * Card.size();
+        } else if (isStraight(Card)) {
+            score = 1.2 * Card.size();
         }
     }
 }
