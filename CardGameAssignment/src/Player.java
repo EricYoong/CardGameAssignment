@@ -6,6 +6,7 @@ public class Player{
 
     private List<Card> handCard;
     private List<Card> setCard;
+    private double score = 0;
     private RankComparator rankComparator = new RankComparator();
     private SuitComparator suitComparator = new SuitComparator();
     private SetPlayerValidation valid;
@@ -32,10 +33,14 @@ public class Player{
         }
     }
 
+    public double getScore(){
+        return score;
+    }
+
     public void addSet(ArrayList<Card> tmpSet) {
         sortByRank(tmpSet);
         valid.checkSet(tmpSet);
-
+        score = valid.getScore();
     }
 
     public void addCards(DeckOfCards d1) {
