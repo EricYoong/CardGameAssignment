@@ -12,6 +12,10 @@ abstract public class SetPlayerValidation extends Set{
     public void checkSet(List<Card> Card){
         if(isSameKind(Card)){
             score = 1.5 * Card.size();
+        }else if(isFlush(Card)){
+
+        }else if(isStraight(Card)){
+
         }
     }
 }
