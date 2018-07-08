@@ -1,17 +1,20 @@
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Game {
     public static void main(String[] args) {
         DeckOfCards d1 = new DeckOfCards();
+        DiscardPile p1 = new DiscardPile(d1);
         ArrayList<Player> player = new ArrayList<Player>();
+        int noPlayer;
 
+        noPlayer = Integer.parseInt(JOptionPane.showInputDialog(null, "Number of Player: "));
+//        input.reset();
 
-        Scanner input = new Scanner(System.in);
-
-        for(int i = 0;i<2;i++){
+        for (int i = 0; i < noPlayer; i++) {
             Player tmp;
-            player.add(tmp = new Player(input.nextLine(), d1));
+            player.add(tmp = new Player(JOptionPane.showInputDialog(null, "Player " + (i + 1) + ": "), d1));
         }
 
 

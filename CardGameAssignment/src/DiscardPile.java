@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 
-public class DiscardPile extends DeckOfCards {
+public class DiscardPile{
     private ArrayList<Card> pileCard;
     private ArrayList<Card> tmpPile;
 
-    public DiscardPile() {
+    public DiscardPile(DeckOfCards d1) {
         pileCard = new ArrayList<Card>();
-        pileCard.add(super.pullRandom());
+        pileCard.add(d1.pullRandom());
     }
 
     public void addPile(Card card) {
@@ -21,11 +21,11 @@ public class DiscardPile extends DeckOfCards {
         }
     }
 
-    public void resetPile() {
+    public void resetPile(DeckOfCards d1) {
         for (int i = 0; i < pileCard.size() - 1; i++) {
             tmpPile.add(pileCard.get(i));
         }
-        super.addPile(tmpPile);
+        d1.addPile(tmpPile);
         for (int i = 0; i < tmpPile.size(); i++) {
             pileCard.remove(tmpPile.size() - i);
         }

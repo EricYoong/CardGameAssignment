@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="b8f71185-1c4c-4fbd-a7f9-3870352a1030" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CardGameAssignment/DeckOfCards.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CardGameAssignment/DeckOfCards.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CardGameAssignment/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CardGameAssignment/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DiscardPile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DiscardPile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,20 +21,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DeckOfCards.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DeckOfCards.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="549">
-              <caret line="70" selection-start-line="70" selection-end-line="70" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1774#1775#0" expanded="true" />
-                <element signature="e#1813#1814#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Card.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Card.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -129,15 +117,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="267">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#186#194#0" expanded="true" />
+                <element signature="e#255#263#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DiscardPile.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/DiscardPile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="25" column="41" lean-forward="true" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -165,7 +162,6 @@
         <option value="$PROJECT_DIR$/src/Card.java" />
         <option value="$PROJECT_DIR$/src/SuitComparator.java" />
         <option value="$PROJECT_DIR$/src/RankComparator.java" />
-        <option value="$PROJECT_DIR$/src/DiscardPile.java" />
         <option value="$PROJECT_DIR$/src/Set.java" />
         <option value="$PROJECT_DIR$/src/DeckOfCards.java" />
         <option value="$PROJECT_DIR$/src/SetPlayerValidation.java" />
@@ -173,6 +169,7 @@
         <option value="$PROJECT_DIR$/src/SameKind.java" />
         <option value="$PROJECT_DIR$/src/Flush.java" />
         <option value="$PROJECT_DIR$/src/Player.java" />
+        <option value="$PROJECT_DIR$/src/DiscardPile.java" />
         <option value="$PROJECT_DIR$/src/Game.java" />
       </list>
     </option>
@@ -328,7 +325,7 @@
       <workItem from="1530935284899" duration="1914000" />
       <workItem from="1530961789110" duration="5146000" />
       <workItem from="1531020954841" duration="9275000" />
-      <workItem from="1531034636118" duration="3279000" />
+      <workItem from="1531034636118" duration="4981000" />
     </task>
     <task id="LOCAL-00001" summary="Third Commit">
       <created>1530764073032</created>
@@ -414,11 +411,18 @@
       <option name="project" value="LOCAL" />
       <updated>1531036568993</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Add few Functions">
+      <created>1531038251324</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1531038251324</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45490000" />
+    <option name="totallyTimeSpent" value="47192000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -426,7 +430,7 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="7" />
-      <window_info anchor="bottom" id="Messages" order="0" sideWeight="0.49926794" weight="0.32826748" />
+      <window_info anchor="bottom" id="Messages" order="0" sideWeight="0.49926794" weight="0.32750398" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
@@ -434,19 +438,19 @@
       <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49919137" visible="true" weight="0.30683625" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49919137" weight="0.30683625" />
       <window_info anchor="right" id="Coverage" side_tool="true" weight="0.329429" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13909224" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13909224" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.3974563" />
+      <window_info anchor="bottom" id="Debug" order="4" visible="true" weight="0.3974563" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -472,12 +476,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Game.java</url>
-          <line>13</line>
+          <line>14</line>
           <properties />
-          <option name="timeStamp" value="19" />
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="20" />
+      <option name="time" value="22" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -696,7 +700,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DiscardPile.java" />
     <entry file="file://$PROJECT_DIR$/src/SuitComparator.java" />
     <entry file="file://$PROJECT_DIR$/src/SameKind.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -780,12 +783,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="267">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#186#194#0" expanded="true" />
+            <element signature="e#255#263#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DiscardPile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="25" column="41" lean-forward="true" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
         </state>
       </provider>
     </entry>
