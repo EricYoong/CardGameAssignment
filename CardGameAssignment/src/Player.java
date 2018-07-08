@@ -35,11 +35,11 @@ public class Player{
         }
     }
 
-    public double getScore(){
-        return score;
+    public double getTotalScore(){
+        return score+=valid.getScore();
     }
 
-    public void findSet(int[] tmp){
+    public void getSet(int[] tmp){
 
         ArrayList<Card> tmpCard = new ArrayList<Card>();
         for(int i = 0;i< tmp.length;i++){

@@ -39,7 +39,10 @@ public class Game {
                 player.get(i).addCards(d1);
                 tmp = (Integer) JOptionPane.showInputDialog(null, "Select the card you wanted to remove:", "RemoveCard", JOptionPane.INFORMATION_MESSAGE, null, possibilities, "Numbers");
                 player.get(i).removeCard(player.get(i).findCard(tmp));
-                player.get(i).findSet(tmpSet);
+                if(choice == 1){
+                    player.get(i).getSet(tmpSet);
+                }
+
             }else if(choice == 2){
 
             }
