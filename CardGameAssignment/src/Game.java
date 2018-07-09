@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class Game {
     public static void main(String[] args) {
@@ -9,43 +9,48 @@ public class Game {
         DiscardPile p1;
         ArrayList<Player> player = new ArrayList<Player>();
         Object[] possibilities = {2, 3, 4};
-        Integer noPlayer;
-        Integer choice;
+        String sPlayer;
+        int choice, noPlayer = 0;
         boolean valid = false;
+        StringTokenizer st;
+        Scanner input = new Scanner(System.in);
 
 
         while (valid == false) {
+
             System.out.printf("Number of Player: ");
-            noPlayer = (Integer) JOptionPane.showInputDialog(null, "Select number of player:", "NumberOfPlayer", JOptionPane.INFORMATION_MESSAGE, null, possibilities, "Numbers");
-            if ((noPlayer != null) && (noPlayer > 0)) {
-                for (int i = 0; i < noPlayer; i++) {
-                    Player tmp;
-                    player.add(tmp = new Player(JOptionPane.showInputDialog(null, "Player " + (i + 1) + ": "), d1));
+            try {
+                sPlayer = input.nextLine();
+                st = new StringTokenizer(sPlayer, " ");
+
+                if (st.countTokens() > 1) {
+                    System.out.println("Invalid enter!");
+                } else {
+                    for (int i = 0; i < st.countTokens(); i++) {
+                        noPlayer = Integer.parseInt(st.nextToken());
+                    }
                 }
-                valid = true;
-            } else
-                JOptionPane.showMessageDialog(null, "Error number!");
-            break;
+
+//                check is the number of the user input valid between 2 to 4
+                if (noPlayer > 1 && noPlayer < 5) {
+                    for (int i = 0; i < noPlayer; i++) {
+                        Player tmp;
+                        System.out.println("Player " + (i + 1) + ": ");
+                        sPlayer = input.nextLine();
+                        player.add(tmp = new Player(sPlayer, d1));
+                    }
+                    valid = true;
+                } else {
+                    System.out.println("It is an invalid number of player!");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("That is not a correct number");
+            }
+
         }
 
 //        Game Start
         p1 = new DiscardPile(d1);
-        for(int i = 0;i < player.size();i++){
-            int tmp;
-            int[] tmpSet;
-            player.get(i).showHand();
-            choice = (Integer) JOptionPane.showInputDialog(null, "Select number of player:", "NumberOfPlayer", JOptionPane.INFORMATION_MESSAGE, null, possibilities, "Numbers");
-            if(choice == 1){
-                player.get(i).addCards(d1);
-                tmp = (Integer) JOptionPane.showInputDialog(null, "Select the card you wanted to remove:", "RemoveCard", JOptionPane.INFORMATION_MESSAGE, null, possibilities, "Numbers");
-                player.get(i).removeCard(player.get(i).findCard(tmp));
-                player.get(i).findSet(tmpSet);
-            }else if(choice == 2){
-
-            }
-
-
-        }
 
     }
 }
