@@ -31,10 +31,13 @@ public class Game {
                     }
                 }
 
+//                check is the number of the user input valid between 2 to 4
                 if (noPlayer > 1 && noPlayer < 5) {
                     for (int i = 0; i < noPlayer; i++) {
                         Player tmp;
-                        player.add(tmp = new Player(JOptionPane.showInputDialog(null, "Player " + (i + 1) + ": "), d1));
+                        System.out.println("Player " + (i + 1) + ": ");
+                        sPlayer = input.nextLine();
+                        player.add(tmp = new Player(sPlayer, d1));
                     }
                     valid = true;
                 } else {
