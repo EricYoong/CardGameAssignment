@@ -55,17 +55,18 @@ public class Player {
     }
 
     public boolean getSet(int[] tmp) {
-        ArrayList<Card> tmpCard = new ArrayList<Card>();
+        List<Card> tmpCard = new ArrayList<Card>();
 
         if (tmp.length < 2)
             return false;
 
         for (int i = 0; i < tmp.length; i++) {
-            if (!tmpCard.add(findCard(tmp[i]))) {
+            if (!tmpCard.add(findCard(tmp[(tmp.length-1)-i]))) {
                 return false;
             }
+            handCard.remove((tmp.length-1)-i);
         }
-        if (!valid.addSet(tmpCard))
+        if (!valid.addSet(tmpCard,setCard))
             return false;
 
         getTotalScore();
