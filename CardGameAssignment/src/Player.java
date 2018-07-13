@@ -7,8 +7,6 @@ public class Player {
     private List<Card> handCard;
     private List<Card> setCard;
     private String name;
-    private double tScore = 0;
-    private double score = 0;
     private RankComparator rankComparator = new RankComparator();
     private SuitComparator suitComparator = new SuitComparator();
     private SetPlayerValidation valid = new SetPlayerValidation();
@@ -22,6 +20,7 @@ public class Player {
         for (int i = 0; i < 10; i++) {
             addCards(d1);
         }
+        sortByRank(handCard);
         setCard = new ArrayList<Card>();
         this.name = name;
     }
@@ -35,10 +34,9 @@ public class Player {
                 System.out.println("[" + (i + 1) + "] " + handCard.get(i).getRanks() + " " + handCard.get(i).getSuits());
             }
             System.out.println("[-1] Sort by Rank, [-2] Sort by Suits");
+            System.out.println("This is your total score: " + getScore());
             System.out.println("Please select atleast 2 card for set, ");
             System.out.printf("or choose -1 or -2 to do sorting: ");
-            System.out.println("Score from the last set: " + getScore());
-            System.out.println("This is your total score: " + tScore);
         }
     }
 
@@ -46,12 +44,8 @@ public class Player {
         return name;
     }
 
-    public double getScore(){
+    public double getScore() {
         return valid.getScore();
-    }
-
-    public void getTotalScore() {
-        tScore += valid.getScore();
     }
 
     public boolean getSet(int[] tmp) {
@@ -61,15 +55,22 @@ public class Player {
             return false;
 
         for (int i = 0; i < tmp.length; i++) {
-            if (!tmpCard.add(findCard(tmp[(tmp.length-1)-i]))) {
+            if (tmp[i] < 0 || tmp[i] > 10)
+                return false;
+
+            if (!tmpCard.add(findCard(tmp[(tmp.length - 1) - i]))) {
                 return false;
             }
-            handCard.remove((tmp.length-1)-i);
+            handCard.remove(tmp[(tmp.length - 1) - i]);
         }
-        if (!valid.addSet(tmpCard,setCard))
-            return false;
 
-        getTotalScore();
+        Collections.sort(tmpCard, rankComparator);
+
+        if (!valid.addSet(tmpCard, setCard)) {
+            System.out.println("This is an invalid set!");
+            return false;
+        }
+
         return true;
     }
 
@@ -101,4 +102,14 @@ public class Player {
         Collections.sort(Card, suitComparator);
     }
 
+    public boolean checkName(String name) {
+        return this.name.equals(name);
+    }
+
+    public boolean checkHand() {
+        if (handCard.size() > 2)
+            return false;
+        else
+            return true;
+    }
 }

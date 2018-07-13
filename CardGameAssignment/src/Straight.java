@@ -9,13 +9,17 @@ public class Straight extends Set{
 
         for (int i = 0; i < straight.size(); i++) {
             Card tmp = straight.get(i);
-            if (straight.get(i + 1) != null) {
-                if (tmp.getValue() > straight.get(i + 1).getValue()) {
+            while (straight.get(i + 1) != null) {
+                if (tmp.getValue() >= straight.get(i + 1).getValue()) {
                     return false;
                 }
-            } else
-                return false;
+            }
         }
         return true;
+    }
+
+    @Override
+    public double setScore(int noCard){
+        return 1.2 * noCard;
     }
 }

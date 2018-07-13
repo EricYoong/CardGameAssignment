@@ -1,5 +1,5 @@
 
-public class Card {
+public class Card implements Comparable<Card> {
     private Suits mSuit;
     private Ranks mRank;
 
@@ -15,7 +15,7 @@ public class Card {
 
     //    Set a constance for the suits
     public static enum Suits {
-        Spade, Diamond, Club, Heart
+        Spade, Heart, Club, Diamond
     }
 
     //    Set a constance for the Ranks
@@ -39,6 +39,12 @@ public class Card {
     @Override
     public boolean equals(Object o) {
         return (o != null && o instanceof Card && ((Card) o).mRank == mRank && ((Card) o).mSuit == mSuit);
+    }
+
+    @Override
+    public int compareTo(Card c) {
+        int rankCompare = mRank.compareTo(c.mRank);
+        return rankCompare != 0 ? rankCompare : mSuit.compareTo(c.mSuit);
     }
 
 }

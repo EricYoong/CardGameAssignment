@@ -16,4 +16,9 @@ public class Flush extends Set {
         }
         return true;
     }
+
+    @Override
+    public double setScore(int noCard){
+        return 1.0 * noCard;
+    }
 }
