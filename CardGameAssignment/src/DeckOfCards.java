@@ -53,13 +53,11 @@ public class DeckOfCards extends Card {
         }
     }
 
-    public void checkDeck(){
-        if(isEmpty()){
-            for (int i = 0; i < mPile.size(); i++) {
-                mCards.add(mPile.get(mPile.size()));
-            }
-            mPile.clear();
+    public boolean checkDeck(){
+        if(mCards.size() == 0){
+            return true;
         }
+        return false;
     }
 
     public boolean isEmpty() {

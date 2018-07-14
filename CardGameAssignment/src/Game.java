@@ -96,9 +96,7 @@ public class Game {
         //Loop the game if the player is not choose to win.
         while (validGame) {
 
-            if(p1.resetPile(d1)){
-
-            }
+            p1.resetPile(d1);
             //Game started
             for (int i = 0; i < player.size(); i++) {
                 boolean sort;

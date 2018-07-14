@@ -9,7 +9,7 @@ public class Straight extends Set{
 
         for (int i = 0; i < straight.size(); i++) {
             Card tmp = straight.get(i);
-            if (straight.get(i + 1) != null) {
+            if ((i+1) < straight.size()) {
                 if (straight.get(i + 1).getValue() != tmp.getValue()+1) {
                     return false;
                 }
