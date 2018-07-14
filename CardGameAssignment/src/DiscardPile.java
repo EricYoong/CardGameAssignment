@@ -21,18 +21,26 @@ public class DiscardPile {
         }
     }
 
-    public void resetPile(DeckOfCards d1) {
-        if (pileCard.isEmpty())
+    public boolean resetPile(DeckOfCards d1) {
+        tmpPile = new ArrayList<Card>();
+        if (pileCard.isEmpty()) {
             System.out.println("There are no pile card.");
+            return false;
+        }
 
         for (int i = 0; i < pileCard.size() - 1; i++) {
-            tmpPile.add(pileCard.get(i));
+            if(!tmpPile.add(pileCard.get(i)))
+                return false;
         }
+
         d1.addPile(tmpPile);
+
         for (int i = 0; i < tmpPile.size(); i++) {
             pileCard.remove(tmpPile.size() - i);
         }
+
         tmpPile.clear();
+        return true;
     }
 
 

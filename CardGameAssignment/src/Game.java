@@ -81,138 +81,182 @@ public class Game {
                         valid = true;
                     } else {
                         System.out.println("It is an invalid number of player!");
+                        System.out.println(" ");
                     }
                 }
             } catch (NumberFormatException e) {
                 System.out.println("That is not a correct number");
+                System.out.println(" ");
             }
         }
+
+//        pile deck create
+        p1 = new DiscardPile(d1);
 
         //Loop the game if the player is not choose to win.
         while (validGame) {
 
+            if(p1.resetPile(d1)){
+
+            }
             //Game started
             for (int i = 0; i < player.size(); i++) {
                 boolean sort;
-                p1 = new DiscardPile(d1);
                 int tmp;
 
-                //Check is the user enter int or string
+                //Use to get user want choose seton hand or take one card from the deck
                 valid = false;
                 while (valid == false) {
                     try {
 
-                        //use to sort the card
-                        System.out.println(player.get(i).getName() + " Turns");
-
-                        //Display the discard pile card.
-                        p1.displayPile();
-                        player.get(i).showHand2();
-
-                        //Let the user choose to create set on hand or take one card from the deck.
-                        System.out.println("1. Do you want to make Set from your handCard.");
-                        System.out.println("2. Do you want to take a card from the deck and");
-                        System.out.println("discard 1 card from your hand then only create a set.");
-
-
+                        player.get(i).sortByRank(player.get(i).getCard());
                         //Get user input
                         do {
-                            System.out.println("Please enter your choice: ");
+
+                            //use to call out player name.
+                            System.out.println(player.get(i).getName() + " Turns");
+
+                            //Display the discard pile card.
+                            p1.displayPile();
+                            player.get(i).showHand2();
+
+                            //function Let the user choose to create set on hand or take one card from the deck.
+                            System.out.println("1. Do you want to make Set from your handCard.");
+                            System.out.println("2. Do you want to take a card from the deck and");
+                            System.out.println("discard 1 card from your hand then only create a set.");
+                            System.out.println("Or choose -1 or -2 to do sorting. ");
+                            System.out.printf("Please enter your choice: ");
                             choice = input.nextLine();
+                            System.out.println(" ");
                             st = new StringTokenizer(choice, " ");
                             tmp = st.countTokens();
                             intChoice = new int[tmp];
-                            if (intChoice.length < 1) {
-                                if (intChoice[0] == 1) {
-                                    do {
 
-//                                  Display the player's handCard and get user input
-                                        player.get(i).showHand();
-                                        choice = input.nextLine();
-                                        st = new StringTokenizer(choice, " ");
-                                        tmp = st.countTokens();
-                                        intChoice = new int[tmp];
+                            //Check constraint
+                            if (tmp <= 1) {
 
-                                        for (int j = 0; j < tmp; j++) {
-                                            intChoice[j] = Integer.parseInt(st.nextToken()) - 1;
-                                        }
+                                //set value of the intChoice
+                                for (int j = 0; j < 1; j++) {
+                                    intChoice[0] = Integer.parseInt(st.nextToken()) - 1;
+                                }
 
-                                        //check the user choices whether they want to sort the card.
-                                        if (intChoice[0] == -1) {
-                                            player.get(i).sortByRank(player.get(i).getCard());
-                                            sort = true;
-                                        } else if (intChoice[0] == -2) {
-                                            player.get(i).sortBySuit(player.get(i).getCard());
-                                            sort = true;
-                                        } else {
-                                            System.out.println("Error choice!!");
-                                            sort = false;
-                                        }
-                                    } while (sort);
+                                //Check is the choice is 1 or 2 or (-1 or -2 to sort)
+                                if (intChoice[0] == 0) {
+
                                     valid = false;
 
-                                } else if (intChoice[0] == 2) {
-                                    do {
+                                } else if (intChoice[0] == 1) {
+                                    //add random card from the deck
+                                    player.get(i).addCards(d1);
 
-                                        //add random card from the deck
-                                        player.get(i).addCards(d1);
+                                    //show player name and hand card after added the card.
+                                    System.out.println(player.get(i).getName() + " Turns");
+                                    System.out.println("Card Added.");
+                                    player.get(i).sortByRank(player.get(i).getCard());
+                                    do {
+                                        player.get(i).showHand2();
 
                                         //Get the user input to remove card they want from the handCard.
                                         System.out.println("Which card would you like to remove.");
-                                        System.out.println("Please choose one card: ");
+                                        System.out.println("Or choose -1 or -2 to do sorting. ");
+                                        System.out.printf("Please choose one card: ");
                                         choice = input.nextLine();
+                                        System.out.println(" ");
                                         st = new StringTokenizer(choice, " ");
                                         tmp = st.countTokens();
                                         intChoice = new int[tmp];
-                                        if (intChoice.length < 1) {
+                                        if (tmp <= 1) {
 
-                                            //add pile card from the player hand
-                                            p1.addPile(player.get(i).findCard(intChoice[0]));
-                                            //remove a card from the hand after getting one card from the deck
-                                            player.get(i).removeCard(player.get(i).findCard(tmp));
+                                            for (int j = 0; j < tmp; j++) {
+                                                intChoice[j] = Integer.parseInt(st.nextToken()) - 1;
+                                            }
 
-                                        }
+                                            if (intChoice[0] >= 0 && intChoice[0] < 11) {
 
-//                                      Display the player's handCard and get user input
-                                        player.get(i).showHand();
-                                        choice = input.nextLine();
-                                        st = new StringTokenizer(choice, " ");
-                                        tmp = st.countTokens();
-                                        intChoice = new int[tmp];
+                                                //add pile card from the player hand
+                                                p1.addPile(player.get(i).findCard(intChoice[0]));
+                                                //remove a card from the hand after getting one card from the deck
+                                                player.get(i).removeCard(player.get(i).findCard(intChoice[0]));
+                                                valid = false;
 
-                                        for (int j = 0; j < tmp; j++) {
-                                            intChoice[j] = Integer.parseInt(st.nextToken()) - 1;
-                                        }
-
-                                        if (intChoice.length < 1) {
-                                            //check the user choices whether they want to sort the card.
-                                            if (intChoice[0] == -1) {
-                                                player.get(i).sortByRank(player.get(i).getCard());
-                                                sort = true;
-                                            } else if (intChoice[0] == -2) {
-                                                player.get(i).sortBySuit(player.get(i).getCard());
-                                                sort = true;
-                                            } else
-                                                sort = false;
+                                            } else if (intChoice[0] == -2 || intChoice[0] == -3) {
+                                                player.get(i).sortCard(intChoice[0]);
+                                                valid = true;
+                                            } else {
+                                                System.out.println("Error choice.");
+                                                System.out.println(" ");
+                                                valid = true;
+                                            }
                                         } else {
-                                            System.out.println("Error choice!!");
-                                            sort = true;
+                                            System.out.println("Error.");
+                                            System.out.println(" ");
+                                            valid = true;
                                         }
-
-                                    } while (sort);
+                                    } while (valid);
                                     valid = false;
+
+                                    //Let the user sort their card before make the choice.
+                                } else if (intChoice[0] == -2 || intChoice[0] == -3) {
+                                    player.get(i).sortCard(intChoice[0]);
+                                    valid = true;
                                 } else {
                                     System.out.println("Invalid choice!!");
+                                    System.out.println(" ");
                                     valid = true;
                                 }
 
                             } else {
                                 System.out.println("Please enter correct number!!");
+                                System.out.println(" ");
                                 valid = true;
                             }
-                        } while (!valid);
-                        //Check if the player choose the correct number for the choice
-                        //which from 1 or 2
+                        } while (valid);
+
+                        //exit loop
+                        valid = true;
+                    } catch (NumberFormatException e) {
+                        System.out.println("That is not a correct number");
+                        System.out.println(" ");
+                        valid = false;
+                    }
+                }
+
+
+                //main functions
+                valid = false;
+                while (valid == false) {
+                    try {
+                        player.get(i).sortByRank(player.get(i).getCard());
+                        sort = true;
+
+                        do {
+                            //Game continue
+                            //use to call out player name.
+                            System.out.println(player.get(i).getName() + " Turns");
+
+                            //Display the player's handCard and get user input
+                            p1.displayPile();
+                            player.get(i).showHand();
+                            choice = input.nextLine();
+                            System.out.println(" ");
+                            st = new StringTokenizer(choice, " ");
+                            tmp = st.countTokens();
+                            intChoice = new int[tmp];
+
+                            for (int j = 0; j < tmp; j++) {
+                                intChoice[j] = Integer.parseInt(st.nextToken()) - 1;
+                            }
+
+                            //check the user choices whether they want to sort the card.
+                            if (tmp < 2) {
+                                if (intChoice[0] == -2 || intChoice[0] == -3) {
+                                    player.get(i).sortCard(intChoice[0]);
+                                    sort = true;
+                                }
+                            }else
+                                sort = false;
+
+                        } while (sort);
 
                         //Check is the set that the player create is successful or invalid.
                         if (!player.get(i).getSet(intChoice)) {
@@ -224,6 +268,7 @@ public class Game {
 
                     } catch (NumberFormatException e) {
                         System.out.println("That is not a correct number");
+                        System.out.println(" ");
                         valid = false;
                     }
                 }
@@ -247,18 +292,18 @@ public class Game {
 
                             if (end.equals(choices)) {
                                 validGame = false;
-                                valid = false;
+                                valid = true;
                             } else if (notEnd.equals(choices)) {
                                 validGame = true;
-                                valid = false;
+                                valid = true;
                             } else {
                                 System.out.printf("Invalid choices. Please re-enter: ");
-                                valid = true;
+                                valid = false;
                             }
 
                         } catch (NumberFormatException e) {
                             System.out.println("That is not a correct number");
-                            valid = true;
+                            valid = false;
                         }
                     }
 

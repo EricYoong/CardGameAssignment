@@ -9,8 +9,8 @@ public class Straight extends Set{
 
         for (int i = 0; i < straight.size(); i++) {
             Card tmp = straight.get(i);
-            while (straight.get(i + 1) != null) {
-                if (tmp.getValue() >= straight.get(i + 1).getValue()) {
+            if (straight.get(i + 1) != null) {
+                if (straight.get(i + 1).getValue() != tmp.getValue()+1) {
                     return false;
                 }
             }

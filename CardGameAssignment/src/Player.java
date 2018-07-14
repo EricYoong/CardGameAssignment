@@ -29,10 +29,7 @@ public class Player {
         if (handCard.isEmpty()) {
             System.out.println("There are no cards hold by the player.");
         } else {
-            System.out.println("This is your hand card:");
-            for (int i = 0; i < handCard.size(); i++) {
-                System.out.println("[" + (i + 1) + "] " + handCard.get(i).getRanks() + " " + handCard.get(i).getSuits());
-            }
+            showHand2();
             System.out.println("[-1] Sort by Rank, [-2] Sort by Suits");
             System.out.println("This is your total score: " + getScore());
             System.out.println("Please select atleast 2 card for set, ");
@@ -72,6 +69,8 @@ public class Player {
             if (!tmpCard.add(findCard(tmp[(tmp.length - 1) - i]))) {
                 return false;
             }
+        }
+        for (int i = 0; i < tmp.length; i++) {
             handCard.remove(tmp[(tmp.length - 1) - i]);
         }
 
@@ -111,6 +110,14 @@ public class Player {
 
     public void sortBySuit(List<Card> Card) {
         Collections.sort(Card, suitComparator);
+    }
+
+    public void sortCard(int tmp){
+        if(tmp == -2){
+            sortByRank(handCard);
+        } else if(tmp == -3){
+            sortBySuit(handCard);
+        }
     }
 
     public boolean checkName(String name) {
