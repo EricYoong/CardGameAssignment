@@ -251,7 +251,7 @@ public class Game {
                                     player.get(i).sortCard(intChoice[0]);
                                     sort = true;
                                 }
-                            }else
+                            } else
                                 sort = false;
 
                         } while (sort);
@@ -280,7 +280,6 @@ public class Game {
 
                     while (valid) {
                         try {
-
                             System.out.println("You have left 2 cards or less hand cards.");
                             System.out.println("Do you want to end the game.");
                             System.out.println("If \"yes\" please type knock, if no press \"no\" to continue");

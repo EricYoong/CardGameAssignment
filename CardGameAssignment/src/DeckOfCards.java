@@ -53,8 +53,8 @@ public class DeckOfCards extends Card {
         }
     }
 
-    public boolean checkDeck(){
-        if(mCards.size() == 0){
+    public boolean checkDeck() {
+        if (mCards.size() == 0) {
             return true;
         }
         return false;
@@ -63,6 +63,4 @@ public class DeckOfCards extends Card {
     public boolean isEmpty() {
         return mCards.isEmpty();
     }
-
-
 }
