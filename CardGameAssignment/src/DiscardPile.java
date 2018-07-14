@@ -17,7 +17,7 @@ public class DiscardPile {
         if (pileCard.isEmpty()) {
             System.out.println("There are no pile Card.");
         } else {
-            System.out.println("The discard pile is: " + pileCard.get(pileCard.size() - 1));
+            System.out.println("The discard pile is: " + pileCard.get(pileCard.size() - 1).getRanks() + " " + pileCard.get(pileCard.size() - 1).getSuits());
         }
     }
 

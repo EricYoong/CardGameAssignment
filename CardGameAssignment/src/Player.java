@@ -30,13 +30,24 @@ public class Player {
             System.out.println("There are no cards hold by the player.");
         } else {
             System.out.println("This is your hand card:");
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < handCard.size(); i++) {
                 System.out.println("[" + (i + 1) + "] " + handCard.get(i).getRanks() + " " + handCard.get(i).getSuits());
             }
             System.out.println("[-1] Sort by Rank, [-2] Sort by Suits");
             System.out.println("This is your total score: " + getScore());
             System.out.println("Please select atleast 2 card for set, ");
             System.out.printf("or choose -1 or -2 to do sorting: ");
+        }
+    }
+
+    public void showHand2(){
+        if (handCard.isEmpty()) {
+            System.out.println("There are no cards hold by the player.");
+        } else {
+            System.out.println("This is your hand card:");
+            for (int i = 0; i < handCard.size(); i++) {
+                System.out.println("[" + (i + 1) + "] " + handCard.get(i).getRanks() + " " + handCard.get(i).getSuits());
+            }
         }
     }
 
@@ -55,7 +66,7 @@ public class Player {
             return false;
 
         for (int i = 0; i < tmp.length; i++) {
-            if (tmp[i] < 0 || tmp[i] > 10)
+            if (tmp[i] < 0 || tmp[i] > handCard.size())
                 return false;
 
             if (!tmpCard.add(findCard(tmp[(tmp.length - 1) - i]))) {
