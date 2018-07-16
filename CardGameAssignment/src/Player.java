@@ -37,7 +37,7 @@ public class Player {
         }
     }
 
-    public void showHand2(){
+    public void showHand2() {
         if (handCard.isEmpty()) {
             System.out.println("There are no cards hold by the player.");
         } else {
@@ -63,15 +63,17 @@ public class Player {
             return false;
 
         for (int i = 0; i < tmp.length; i++) {
+            if (tmp[i] < 0 || tmp[i] > 10)
+                return false;
+        }
+
+        for (int i = 0; i < tmp.length; i++) {
             if (tmp[i] < 0 || tmp[i] > handCard.size())
                 return false;
 
             if (!tmpCard.add(findCard(tmp[(tmp.length - 1) - i]))) {
                 return false;
             }
-        }
-        for (int i = 0; i < tmp.length; i++) {
-            handCard.remove(tmp[(tmp.length - 1) - i]);
         }
 
         Collections.sort(tmpCard, rankComparator);
@@ -81,6 +83,9 @@ public class Player {
             return false;
         }
 
+        for (int i = 0; i < tmp.length; i++) {
+            handCard.remove(tmp[(tmp.length - 1) - i]);
+        }
         return true;
     }
 
@@ -112,10 +117,10 @@ public class Player {
         Collections.sort(Card, suitComparator);
     }
 
-    public void sortCard(int tmp){
-        if(tmp == -2){
+    public void sortCard(int tmp) {
+        if (tmp == -2) {
             sortByRank(handCard);
-        } else if(tmp == -3){
+        } else if (tmp == -3) {
             sortBySuit(handCard);
         }
     }
