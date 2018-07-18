@@ -16,6 +16,7 @@ public class Game {
 
         //numPlayer data
         boolean valid = false;
+        boolean valid2 = true;
         String sPlayer;
         StringTokenizer st;
 
@@ -107,7 +108,7 @@ public class Game {
                 while (valid == false) {
                     try {
 
-                        player.get(i).sortByRank(player.get(i).getCard());
+                        player.get(i).sortBySuit(player.get(i).getCard());
                         //Get user input
                         do {
 
@@ -130,7 +131,7 @@ public class Game {
                             tmp = st.countTokens();
                             intChoice = new int[tmp];
 
-                            //Check constraint
+                            //Check if the player is insert one number?
                             if (tmp <= 1) {
 
                                 //set value of the intChoice
@@ -150,13 +151,12 @@ public class Game {
                                     //show player name and hand card after added the card.
                                     System.out.println(player.get(i).getName() + " Turns");
                                     System.out.println("Card Added.");
-                                    player.get(i).sortByRank(player.get(i).getCard());
                                     do {
                                         player.get(i).showHand2();
 
                                         //Get the user input to remove card they want from the handCard.
                                         System.out.println("Which card would you like to remove.");
-                                        System.out.println("Or choose -1 or -2 to do sorting. ");
+                                        System.out.println("Or choose -1 (Rank sort) or -2 (Suit sort) to do sorting. ");
                                         System.out.printf("Please choose one card: ");
                                         choice = input.nextLine();
                                         System.out.println(" ");
@@ -224,51 +224,76 @@ public class Game {
                 valid = false;
                 while (valid == false) {
                     try {
-                        player.get(i).sortByRank(player.get(i).getCard());
+                        player.get(i).sortBySuit(player.get(i).getCard());
                         sort = true;
 
-                        do {
-                            //Game continue
-                            //use to call out player name.
-                            System.out.println(player.get(i).getName() + " Turns");
+                        //When the player left 2 or less handCard the user are allowed to end the game.
+                        if (player.get(i).checkHand()) {
+                            do {
+                                try {
+                                    System.out.println("You have left 2 cards or less hand cards.");
+                                    System.out.println("Do you want to end the game.");
+                                    System.out.println("If \"yes\" please type knock, if no press \"no\" to continue");
+                                    System.out.printf("Choice: ");
 
-                            //Display the player's handCard and get user input
-                            p1.displayPile();
-                            player.get(i).showHand();
-                            choice = input.nextLine();
-                            System.out.println(" ");
-                            st = new StringTokenizer(choice, " ");
-                            tmp = st.countTokens();
-                            intChoice = new int[tmp];
+                                    choice = input.nextLine();
 
-                            for (int j = 0; j < tmp; j++) {
-                                intChoice[j] = Integer.parseInt(st.nextToken()) - 1;
-                            }
+                                    if (player.get(i).checkGame(player.get(i).getCard(), choice)) {
+                                        valid = true;
+                                        valid2 = false;
+                                    }else
+                                        valid = false;
 
-                            //check the user choices whether they want to sort the card.
-                            if (tmp <= 1) {
-                                if (intChoice[0] == -2 || intChoice[0] == -3) {
-                                    player.get(i).sortCard(intChoice[0]);
-                                    sort = true;
-                                } else if (intChoice[0] == -1)
+                                } catch (NumberFormatException e) {
+                                    System.out.println("That is not a correct number");
+                                    valid = false;
+                                }
+                            } while (valid == false);
+                        }
+
+                        if (valid2 == true) {
+                            do {
+                                //Game continue
+                                //use to call out player name.
+                                System.out.println(player.get(i).getName() + " Turns");
+
+                                //Display the player's handCard and get user input
+                                p1.displayPile();
+                                player.get(i).showHand();
+                                choice = input.nextLine();
+                                st = new StringTokenizer(choice, " ");
+                                tmp = st.countTokens();
+                                intChoice = new int[tmp];
+
+                                for (int j = 0; j < tmp; j++) {
+                                    intChoice[j] = Integer.parseInt(st.nextToken()) - 1;
+                                }
+
+                                //check the user choices whether they want to sort the card.
+                                if (tmp <= 1) {
+                                    if (intChoice[0] == -2 || intChoice[0] == -3) {
+                                        player.get(i).sortCard(intChoice[0]);
+                                        sort = true;
+                                    } else if (intChoice[0] == -1)
+                                        sort = false;
+                                } else
                                     sort = false;
+
+                            } while (sort);
+
+                            //Check is the set that the player create is successful or invalid.
+                            //or want to skip a not
+                            if (tmp <= 1) {
+                                if (intChoice[0] == -1) {
+                                    valid = true;
+                                }
+                            } else if (!player.get(i).getSet(intChoice)) {
+                                System.out.println("Invalid Set Build or Card selected!!!");
+                                System.out.println(" ");
+                                valid = false;
                             } else
-                                sort = false;
-
-                        } while (sort);
-
-                        //Check is the set that the player create is successful or invalid.
-                        //or want to skip a not
-                        if (tmp <= 1) {
-                            if (intChoice[0] == -1) {
                                 valid = true;
-                            }
-                        } else if (!player.get(i).getSet(intChoice)) {
-                            System.out.println("Invalid Set Build or Card selected!!!");
-                            System.out.println(" ");
-                            valid = false;
-                        } else
-                            valid = true;
+                        }
 
                     } catch (NumberFormatException e) {
                         System.out.println("That is not a correct number");
@@ -276,43 +301,9 @@ public class Game {
                         valid = false;
                     }
                 }
-
-                //When the player left 2 or less handCard the user are allowed to end the game.
-                if (player.get(i).checkHand()) {
-                    String notEnd = "no";
-                    String end = "knock";
-                    String choices;
-                    valid = true;
-
-                    while (valid) {
-                        try {
-                            System.out.println("You have left 2 cards or less hand cards.");
-                            System.out.println("Do you want to end the game.");
-                            System.out.println("If \"yes\" please type knock, if no press \"no\" to continue");
-                            System.out.printf("Choice: ");
-
-                            choices = input.nextLine();
-
-                            if (end.equals(choices)) {
-                                validGame = false;
-                                valid = true;
-                            } else if (notEnd.equals(choices)) {
-                                validGame = true;
-                                valid = true;
-                            } else {
-                                System.out.printf("Invalid choices. Please re-enter: ");
-                                valid = false;
-                            }
-
-                        } catch (NumberFormatException e) {
-                            System.out.println("That is not a correct number");
-                            valid = false;
-                        }
-                    }
-
-                }
             }
         }
     }
 }
+
 

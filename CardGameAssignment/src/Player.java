@@ -11,10 +11,6 @@ public class Player {
     private SuitComparator suitComparator = new SuitComparator();
     private SetPlayerValidation valid = new SetPlayerValidation();
 
-    public Player() {
-        super();
-    }
-
     public Player(String name, DeckOfCards d1) {
         handCard = new ArrayList<Card>();
         for (int i = 0; i < 10; i++) {
@@ -32,8 +28,8 @@ public class Player {
             showHand2();
             System.out.println("[-1] Sort by Rank, [-2] Sort by Suits");
             System.out.println("This is your total score: " + getScore());
-            System.out.println("Please select atleast 2 card for set, ");
-            System.out.printf("or choose -1 or -2 to do sorting: ");
+            System.out.println("Please select atleast 2 card for set, choose 0 to skip the game, ");
+            System.out.printf("or choose -1 (Rank sort) or -2 (Suit Sort) to do sorting: ");
         }
     }
 
@@ -101,10 +97,6 @@ public class Player {
         return handCard.get(i);
     }
 
-    public int findCard(Card card) {
-        return handCard.indexOf(card);
-    }
-
     public void removeCard(Card card) {
         handCard.remove(card);
     }
@@ -134,5 +126,29 @@ public class Player {
             return false;
         else
             return true;
+    }
+
+    public boolean checkGame(List<Card> Card, String choice) {
+        String notEnd = "no";
+        String end = "knock";
+
+        if(Card.size() < 2) {
+            try {
+                if (end.equals(choice)) {
+                    return true;
+                } else if (notEnd.equals(choice)) {
+                    return false;
+                } else {
+                    System.out.printf("Invalid choices. Please re-enter: ");
+                    return false;
+                }
+
+            } catch (NumberFormatException e) {
+                System.out.println("That is not a correct number");
+                return false;
+            }
+        }else
+            return false;
+
     }
 }
