@@ -20,7 +20,7 @@ public class Player {
         for (int i = 0; i < 10; i++) {
             addCards(d1);
         }
-        sortByRank(handCard);
+        sortBySuit(handCard);
         setCard = new ArrayList<Card>();
         this.name = name;
     }

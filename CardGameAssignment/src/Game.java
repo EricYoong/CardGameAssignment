@@ -246,18 +246,24 @@ public class Game {
                             }
 
                             //check the user choices whether they want to sort the card.
-                            if (tmp < 2) {
+                            if (tmp <= 1) {
                                 if (intChoice[0] == -2 || intChoice[0] == -3) {
                                     player.get(i).sortCard(intChoice[0]);
                                     sort = true;
-                                }
+                                } else if (intChoice[0] == -1)
+                                    sort = false;
                             } else
                                 sort = false;
 
                         } while (sort);
 
                         //Check is the set that the player create is successful or invalid.
-                        if (!player.get(i).getSet(intChoice)) {
+                        //or want to skip a not
+                        if (tmp <= 1) {
+                            if (intChoice[0] == -1) {
+                                valid = true;
+                            }
+                        } else if (!player.get(i).getSet(intChoice)) {
                             System.out.println("Invalid Set Build or Card selected!!!");
                             System.out.println(" ");
                             valid = false;

@@ -14,11 +14,11 @@ public class SetPlayerValidation {
         Set setFlush = new Flush();
         Set setSame = new SameKind();
 
-        if (setFlush.check(tmpSet)) {
+        if (setSame.check(tmpSet)) {
 
-            this.score += setFlush.setScore(tmpSet.size());
+            this.score += setSame.setScore(tmpSet.size());
             setCard.addAll(tmpSet);
-            System.out.println("Set for Flush create !!");
+            System.out.println("Set for SameKind created!!");
             System.out.println("Score Updated: " + getScore());
             return true;
 
@@ -30,11 +30,11 @@ public class SetPlayerValidation {
             System.out.println("Score Updated: " + getScore());
             return true;
 
-        } else if (setSame.check(tmpSet)) {
+        } else if (setFlush.check(tmpSet)) {
 
-            this.score += setSame.setScore(tmpSet.size());
+            this.score += setFlush.setScore(tmpSet.size());
             setCard.addAll(tmpSet);
-            System.out.println("Set for SameKind created!!");
+            System.out.println("Set for Flush create !!");
             System.out.println("Score Updated: " + getScore());
             return true;
 
