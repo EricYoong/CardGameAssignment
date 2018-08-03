@@ -39,7 +39,9 @@ public class Player {
         } else {
             System.out.println("This is your hand card:");
             for (int i = 0; i < handCard.size(); i++) {
-                System.out.println("[" + (i + 1) + "] " + handCard.get(i).getRanks() + " " + handCard.get(i).getSuits());
+                String tmp1 = "[" + (i + 1) + "] " + handCard.get(i).getRanks() + " " + handCard.get(i).getSuits();
+                String tmp2 = String.format("%-20c",tmp1);
+                System.out.println(tmp2);
             }
         }
     }
