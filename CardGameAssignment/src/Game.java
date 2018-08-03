@@ -1,6 +1,5 @@
-import javax.swing.*;
-import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class Game {
@@ -62,7 +61,7 @@ public class Game {
 //                                Check the existing player name
                                 for (int j = 0; j < player.size(); j++) {
 
-                                    if (sPlayer.isEmpty() || sPlayer.equals(" ")) {
+                                    if (sPlayer.isEmpty() || sPlayer.equals(" ") || sPlayer.equals("")) {
                                         System.out.println("Cannot be empty name!!");
                                     } else {
                                         if (player.get(j).checkName(sPlayer)) {
@@ -96,7 +95,7 @@ public class Game {
 
         //Loop the game if the player is not choose to win.
         while (validGame) {
-
+            //reset pile for start game
             p1.resetPile(d1);
             //Game started
             for (int i = 0; i < player.size(); i++) {
@@ -241,7 +240,7 @@ public class Game {
                                     if (player.get(i).checkGame(player.get(i).getCard(), choice)) {
                                         valid = true;
                                         valid2 = false;
-                                    }else
+                                    } else
                                         valid = false;
 
                                 } catch (NumberFormatException e) {

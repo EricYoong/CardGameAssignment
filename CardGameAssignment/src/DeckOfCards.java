@@ -8,7 +8,9 @@ public class DeckOfCards extends Card {
     private Random mRandom;
     private ArrayList<Card> mPile;
 
+    //    Create deck of card
     public DeckOfCards() {
+
         mRandom = new Random();
         mPulledCards = new ArrayList<Card>();
         mCards = new ArrayList<Card>(Suits.values().length * Ranks.values().length);
@@ -53,10 +55,11 @@ public class DeckOfCards extends Card {
         }
     }
 
+    //Check Deck is empty a not
     public boolean checkDeck() {
-        if (mCards.size() == 0) {
+        if (mCards.size() == 0)
             return true;
-        }
+
         return false;
     }
 

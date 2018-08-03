@@ -21,13 +21,13 @@ public class DiscardPile {
         }
     }
 
+    //    reset the pile of card when there is no any deck card.
     public void resetPile(DeckOfCards d1) {
         tmpPile = new ArrayList<Card>();
-        if (pileCard.isEmpty()) {
+        if (pileCard.isEmpty())
             System.out.println("There are no pile card.");
-        }
 
-        if(d1.checkDeck()) {
+        if (d1.checkDeck()) {
             for (int i = 0; i < pileCard.size() - 1; i++) {
                 tmpPile.add(pileCard.get(i));
             }
@@ -41,6 +41,4 @@ public class DiscardPile {
             tmpPile.clear();
         }
     }
-
-
 }
