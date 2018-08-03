@@ -75,7 +75,6 @@ public class Player {
         Collections.sort(tmpCard, rankComparator);
 
         if (!valid.addSet(tmpCard, setCard)) {
-            System.out.println("This is an invalid set!");
             return false;
         }
 

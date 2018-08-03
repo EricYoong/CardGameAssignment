@@ -42,10 +42,11 @@ public class Game {
                     if (noPlayer > 1 && noPlayer < 5) {
                         for (int i = 0; i < noPlayer; i++) {
                             Player tmp;
-                            boolean nameValid = true;
+                            boolean nameValid = false;
 
-                            while (nameValid) {
+                            while (nameValid == false) {
 
+                                System.out.println(" ");
                                 System.out.printf("Player " + (i + 1) + ": ");
                                 sPlayer = input.nextLine();
 
@@ -60,20 +61,21 @@ public class Game {
 
 //                                Check the existing player name
                                 for (int j = 0; j < player.size(); j++) {
-
                                     if (sPlayer.isEmpty() || sPlayer.equals(" ") || sPlayer.equals("")) {
                                         System.out.println("Cannot be empty name!!");
+                                        System.out.println(" ");
                                     } else {
                                         if (player.get(j).checkName(sPlayer)) {
                                             System.out.println("The player name is existing!!");
                                             System.out.println("Please re-enter");
+                                            System.out.println(" ");
                                             break;
                                         } else {
-                                            nameValid = false;
+                                            nameValid = true;
                                         }
                                     }
                                 }
-                                if (nameValid != true) {
+                                if (nameValid != false) {
                                     player.add(tmp = new Player(sPlayer, d1));
                                 }
                             }
@@ -112,6 +114,7 @@ public class Game {
                         do {
 
                             //use to call out player name.
+                            System.out.println(" ");
                             System.out.println(player.get(i).getName() + " Turns");
 
                             //Display the discard pile card.
@@ -122,8 +125,9 @@ public class Game {
                             System.out.println("1. Do you want to make Set from your handCard.");
                             System.out.println("2. Do you want to take a card from the deck and");
                             System.out.println("discard 1 card from your hand then only create a set.");
-                            System.out.println("Or choose -1 or -2 to do sorting. ");
-                            System.out.printf("Please enter your choice: ");
+                            System.out.println("-1. Do Rank sorting. ");
+                            System.out.println("-2. Do Suit sorting. ");
+                            System.out.print("Please enter your choice: ");
                             choice = input.nextLine();
                             System.out.println(" ");
                             st = new StringTokenizer(choice, " ");
@@ -132,7 +136,6 @@ public class Game {
 
                             //Check if the player is insert one number?
                             if (tmp <= 1) {
-
                                 //set value of the intChoice
                                 for (int j = 0; j < 1; j++) {
                                     intChoice[0] = Integer.parseInt(st.nextToken()) - 1;
@@ -140,14 +143,13 @@ public class Game {
 
                                 //Check is the choice is 1 or 2 or (-1 or -2 to sort)
                                 if (intChoice[0] == 0) {
-
                                     valid = false;
-
                                 } else if (intChoice[0] == 1) {
                                     //add random card from the deck
                                     player.get(i).addCards(d1);
 
                                     //show player name and hand card after added the card.
+                                    System.out.println(" ");
                                     System.out.println(player.get(i).getName() + " Turns");
                                     System.out.println("Card Added.");
                                     do {
@@ -181,12 +183,10 @@ public class Game {
                                                 valid = true;
                                             } else {
                                                 System.out.println("Error choice.");
-                                                System.out.println(" ");
                                                 valid = true;
                                             }
                                         } else {
                                             System.out.println("Error.");
-                                            System.out.println(" ");
                                             valid = true;
                                         }
                                     } while (valid);
@@ -198,13 +198,11 @@ public class Game {
                                     valid = true;
                                 } else {
                                     System.out.println("Invalid choice!!");
-                                    System.out.println(" ");
                                     valid = true;
                                 }
 
                             } else {
                                 System.out.println("Please enter correct number!!");
-                                System.out.println(" ");
                                 valid = true;
                             }
                         } while (valid);
@@ -213,18 +211,14 @@ public class Game {
                         valid = true;
                     } catch (NumberFormatException e) {
                         System.out.println("That is not a correct number");
-                        System.out.println(" ");
                         valid = false;
                     }
                 }
-
-
                 //main functions
                 valid = false;
                 while (valid == false) {
                     try {
                         player.get(i).sortBySuit(player.get(i).getCard());
-                        sort = true;
 
                         //When the player left 2 or less handCard the user are allowed to end the game.
                         if (player.get(i).checkHand()) {
@@ -249,6 +243,8 @@ public class Game {
                                 }
                             } while (valid == false);
                         }
+
+                        sort = true;
 
                         if (valid2 == true) {
                             do {
@@ -282,18 +278,22 @@ public class Game {
 
                             //Check is the set that the player create is successful or invalid.
                             //or want to skip a not
+                            //Check the tmp size is 1? if the tmp size is not 1 then it is list of card
                             if (tmp <= 1) {
                                 if (intChoice[0] == -1) {
                                     valid = true;
                                 }
                             } else if (!player.get(i).getSet(intChoice)) {
+                                System.out.println(" ");
                                 System.out.println("Invalid Set Build or Card selected!!!");
+                                System.out.println("To Build Straight you must have at least 3 cards (e.g: 10 J Q K)");
+                                System.out.println("To Build Flush you must have at least 4 cards (e.g: spade spade spade spade)");
+                                System.out.println("To Build SameKind you must have 2 to 4 cards (e.g: 10 10 10 10)");
                                 System.out.println(" ");
                                 valid = false;
                             } else
                                 valid = true;
                         }
-
                     } catch (NumberFormatException e) {
                         System.out.println("That is not a correct number");
                         System.out.println(" ");
@@ -304,5 +304,3 @@ public class Game {
         }
     }
 }
-
-

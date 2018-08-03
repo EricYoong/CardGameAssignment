@@ -18,24 +18,30 @@ public class SetPlayerValidation {
 
             this.score += setSame.setScore(tmpSet.size());
             setCard.addAll(tmpSet);
+            System.out.println(" ");
             System.out.println("Set for SameKind created!!");
-            System.out.println("Score Updated: " + getScore());
+            System.out.print("Score Updated: ");
+            System.out.printf("%.2f", getScore());
             return true;
 
         } else if (setStraight.check(tmpSet)) {
 
             this.score += setStraight.setScore(tmpSet.size());
             setCard.addAll(tmpSet);
+            System.out.println(" ");
             System.out.println("Set for Straight created !!");
-            System.out.println("Score Updated: " + getScore());
+            System.out.print("Score Updated: ");
+            System.out.printf("%.2f", getScore());
             return true;
 
         } else if (setFlush.check(tmpSet)) {
 
             this.score += setFlush.setScore(tmpSet.size());
+            System.out.println(" ");
             setCard.addAll(tmpSet);
             System.out.println("Set for Flush create !!");
-            System.out.println("Score Updated: " + getScore());
+            System.out.print("Score Updated: ");
+            System.out.printf("%.2f", getScore());
             return true;
 
         } else
