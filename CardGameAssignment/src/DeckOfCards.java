@@ -57,10 +57,14 @@ public class DeckOfCards extends Card {
 
     //Check Deck is empty a not
     public boolean checkDeck() {
-        if (mCards.size() == 0)
+        if (sizeOfDeck() == 0)
             return true;
 
         return false;
+    }
+
+    public int sizeOfDeck(){
+        return mCards.size();
     }
 
     public boolean isEmpty() {

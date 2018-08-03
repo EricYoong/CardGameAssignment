@@ -22,26 +22,35 @@ public class Player {
     }
 
     public void showHand() {
+        String sortRank = String.format("|| %-60s||", "-1. Do Rank sorting.");
+        String sortSuit = String.format("|| %-60s||", "-2. Do Suit sorting.");
+
         if (handCard.isEmpty()) {
-            System.out.println("There are no cards hold by the player.");
+            System.out.println("|| There are no cards hold by the player.                      ||");
         } else {
             showHand2();
-            System.out.println("[-1] Sort by Rank, [-2] Sort by Suits");
-            System.out.println("This is your total score: " + getScore());
-            System.out.println("Please select atleast 2 card for set, choose 0 to skip the game, ");
-            System.out.printf("or choose -1 (Rank sort) or -2 (Suit Sort) to do sorting: ");
+
+            System.out.println("||*************************************************************||");
+            System.out.println(sortRank + "\n" + sortSuit);
+            System.out.printf("|| %-60s||","This is your total score: " + getScore());
+            System.out.println("\n|| Please select atleast 2 card for set                        ||");
+            System.out.println("|| Or choose 0 to skip the game.                                 ||");
+            System.out.println("*****************************************************************");
+            System.out.println("*****************************************************************"+"\n");
+            System.out.print("Please enter your choice: ");
+
+
         }
     }
 
     public void showHand2() {
         if (handCard.isEmpty()) {
-            System.out.println("There are no cards hold by the player.");
+            System.out.println("|| There are no cards hold by the player.                      ||");
         } else {
-            System.out.println("This is your hand card:");
+            System.out.println("|| This is your hand card:                                     ||");
             for (int i = 0; i < handCard.size(); i++) {
-                String tmp1 = "[" + (i + 1) + "] " + handCard.get(i).getRanks() + " " + handCard.get(i).getSuits();
-                String tmp2 = String.format("%-20c",tmp1);
-                System.out.println(tmp2);
+                String tmp = String.format("|| %-60s||","[" + (i + 1) + "] " + handCard.get(i).getRanks() + " " + handCard.get(i).getSuits());
+                System.out.println(tmp);
             }
         }
     }
@@ -140,7 +149,7 @@ public class Player {
                 } else if (notEnd.equals(choice)) {
                     return false;
                 } else {
-                    System.out.printf("Invalid choices. Please re-enter: ");
+                    System.out.printf("|%-50s|","Invalid choices. Please re-enter: \n");
                     return false;
                 }
 

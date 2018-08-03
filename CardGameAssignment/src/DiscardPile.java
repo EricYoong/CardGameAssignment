@@ -17,7 +17,8 @@ public class DiscardPile {
         if (pileCard.isEmpty()) {
             System.out.println("There are no pile Card.");
         } else {
-            System.out.println("The discard pile is: " + pileCard.get(pileCard.size() - 1).getRanks() + " " + pileCard.get(pileCard.size() - 1).getSuits());
+            System.out.printf("|| %-60s||","The discard pile is: " + pileCard.get(pileCard.size() - 1).getRanks() + " " + pileCard.get(pileCard.size() - 1).getSuits());
+            System.out.println(" ");
         }
     }
 
@@ -25,7 +26,7 @@ public class DiscardPile {
     public void resetPile(DeckOfCards d1) {
         tmpPile = new ArrayList<Card>();
         if (pileCard.isEmpty())
-            System.out.println("There are no pile card.");
+            System.out.println("|| There are no pile card.                                     ||");
 
         if (d1.checkDeck()) {
             for (int i = 0; i < pileCard.size() - 1; i++) {
