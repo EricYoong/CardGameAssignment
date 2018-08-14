@@ -1,0 +1,3 @@
+Main-Class: Blackjack
+Class-Path: lib/sqlite-jdbc.jar
+

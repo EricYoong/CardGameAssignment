@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="754822ba-ba12-494d-9bb9-4722ad0a7ccf" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../CardGameAssignment/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../CardGameAssignment/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CardGameAssignment/src/GameUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CardGameAssignment/src/GameUI.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,8 +16,8 @@
       <file leaf-file-name="Blackjack.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Blackjack.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4067">
-              <caret line="527" column="21" lean-forward="true" selection-start-line="527" selection-start-column="21" selection-end-line="527" selection-end-column="21" />
+            <state relative-caret-position="329">
+              <caret line="536" column="39" selection-start-line="536" selection-start-column="39" selection-end-line="536" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -214,16 +212,23 @@
       <option name="presentableId" value="Default" />
       <updated>1534165123160</updated>
       <workItem from="1534165124467" duration="173000" />
-      <workItem from="1534165573664" duration="4337000" />
+      <workItem from="1534165573664" duration="5177000" />
     </task>
+    <task id="LOCAL-00001" summary="Add a sample">
+      <created>1534170044748</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1534170044748</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4510000" />
+    <option name="totallyTimeSpent" value="5350000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1874" height="1096" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -231,11 +236,11 @@
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32925585" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="7" sideWeight="0.5005513" side_tool="true" visible="true" weight="0.32985386" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32985386" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32985386" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32985386" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49944875" visible="true" weight="0.32985386" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32985386" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -260,6 +265,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add a sample" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add a sample" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Blackjack.java">
@@ -341,8 +350,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Blackjack.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4067">
-          <caret line="527" column="21" lean-forward="true" selection-start-line="527" selection-start-column="21" selection-end-line="527" selection-end-column="21" />
+        <state relative-caret-position="329">
+          <caret line="536" column="39" selection-start-line="536" selection-start-column="39" selection-end-line="536" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

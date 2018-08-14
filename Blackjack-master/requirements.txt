@@ -1,0 +1,6 @@
+DEPENDENCIES OF THIS PROJECT:
+
+-Java JDK 8 or higher
+-JavaFX 8 or higher
+-SQLite JDBC library in the java classpath
+-An instance of a SQLite embedded database named "blackjackdb.sqlite" in the parent directory of the folder the game will be run from (this is to make the game work as an executable jar- the database cannot be contained within the .jar with everything else because jars are read-only), with one table named scores with two fields: a VARCHAR name and INTEGER score. The game does NOT create this database if there isn't one already in the right place.
