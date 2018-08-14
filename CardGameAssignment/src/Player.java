@@ -32,14 +32,12 @@ public class Player {
 
             System.out.println("||*************************************************************||");
             System.out.println(sortRank + "\n" + sortSuit);
-            System.out.printf("|| %-60s||","This is your total score: " + getScore());
+            System.out.printf("|| %-60s||", "This is your total score: " + getScore());
             System.out.println("\n|| Please select atleast 2 card for set                        ||");
             System.out.println("|| Or choose 0 to skip the game.                                 ||");
             System.out.println("*****************************************************************");
-            System.out.println("*****************************************************************"+"\n");
+            System.out.println("*****************************************************************" + "\n");
             System.out.print("Please enter your choice: ");
-
-
         }
     }
 
@@ -49,7 +47,7 @@ public class Player {
         } else {
             System.out.println("|| This is your hand card:                                     ||");
             for (int i = 0; i < handCard.size(); i++) {
-                String tmp = String.format("|| %-60s||","[" + (i + 1) + "] " + handCard.get(i).getRanks() + " " + handCard.get(i).getSuits());
+                String tmp = String.format("|| %-60s||", "[" + (i + 1) + "] " + handCard.get(i).getRanks() + " " + handCard.get(i).getSuits());
                 System.out.println(tmp);
             }
         }
@@ -142,14 +140,14 @@ public class Player {
         String notEnd = "no";
         String end = "knock";
 
-        if(Card.size() < 2) {
+        if (Card.size() < 2) {
             try {
                 if (end.equals(choice)) {
                     return true;
                 } else if (notEnd.equals(choice)) {
                     return false;
                 } else {
-                    System.out.printf("|%-50s|","Invalid choices. Please re-enter: \n");
+                    System.out.printf("|%-50s|", "Invalid choices. Please re-enter: \n");
                     return false;
                 }
 
@@ -157,8 +155,7 @@ public class Player {
                 System.out.println("That is not a correct number");
                 return false;
             }
-        }else
+        } else
             return false;
-
     }
 }
