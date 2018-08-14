@@ -28,6 +28,11 @@ import java.util.Optional;
 
 
 public class GameUI extends Application {
+    //Object Player and the deck of card
+    private DeckOfCards deck = new DeckOfCards();
+    private ArrayList<Player> player = new ArrayList<Player>();
+
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         /*Various boolean values needed throughout the game. Objects are needed
@@ -41,9 +46,6 @@ public class GameUI extends Application {
         //TextField to insert player name
         TextField nameText = new TextField();
 
-        //Object Player and the deck of card
-        DeckOfCards deck = new DeckOfCards();
-        ArrayList<Player> player = new ArrayList<Player>();
 
         /*Initialize the game loop*/
         Timeline gameLoop = new Timeline();
@@ -164,21 +166,9 @@ public class GameUI extends Application {
                         if (result.get() == null || result.get() == "" || result.get() == " ") {
                             emptyNameWarning.showAndWait();
                         } else {
-                            if (player.size() == 0) {
+                            if(nameChecking(result.get(),existNameWarning)){
                                 player.add(new Player(result.get(), deck));
                                 nameExis = true;
-                            } else {
-                                for (int j = 0; j < player.size(); j++) {
-                                    if (player.get(j).checkName(result.get())) {
-                                        nameExis = false;
-                                        existNameWarning.showAndWait();
-                                        break;
-                                    } else {
-                                        nameExis = true;
-                                    }
-                                }
-                                if(nameExis == true)
-                                    player.add(new Player(result.get(), deck));
                             }
                         }
                     }
@@ -200,21 +190,9 @@ public class GameUI extends Application {
                         if (result.get() == null || result.get() == "" || result.get() == " ") {
                             emptyNameWarning.showAndWait();
                         } else {
-                            if (player.size() == 0) {
+                            if(nameChecking(result.get(),existNameWarning)){
                                 player.add(new Player(result.get(), deck));
                                 nameExis = true;
-                            } else {
-                                for (int j = 0; j < player.size(); j++) {
-                                    if (player.get(j).checkName(result.get())) {
-                                        nameExis = false;
-                                        existNameWarning.showAndWait();
-                                        break;
-                                    } else {
-                                        nameExis = true;
-                                    }
-                                }
-                                if(nameExis == true)
-                                    player.add(new Player(result.get(), deck));
                             }
                         }
                     }
@@ -239,33 +217,46 @@ public class GameUI extends Application {
                         if (result.get() == null || result.get() == "" || result.get() == " ") {
                             emptyNameWarning.showAndWait();
                         } else {
-                            if (player.size() == 0) {
+                            if(nameChecking(result.get(),existNameWarning)){
                                 player.add(new Player(result.get(), deck));
                                 nameExis = true;
-                            } else {
-                                for (int j = 0; j < player.size(); j++) {
-                                    if (player.get(j).checkName(result.get())) {
-                                        nameExis = false;
-                                        existNameWarning.showAndWait();
-                                        break;
-                                    } else {
-                                        nameExis = true;
-                                    }
-                                }
-                                if(nameExis == true)
-                                    player.add(new Player(result.get(), deck));
                             }
                         }
-                    }
                     }
                 }
             }
         });
 
-
         gameLoop.play();
         primaryStage.show();
 
+    }
+
+    public boolean nameChecking(String playerN, Alert a1){
+        Alert addSuccess = new Alert(Alert.AlertType.INFORMATION);
+        addSuccess.setTitle("Information Dialog");
+        addSuccess.setHeaderText("Look, an Information Dialog");
+        addSuccess.setContentText("Add successful!!");
+
+        if (player.size() == 0) {
+            player.add(new Player(playerN, deck));
+            addSuccess.showAndWait();
+            return true;
+        } else {
+            for (int j = 0; j < player.size(); j++) {
+                if (player.get(j).checkName(playerN)) {
+                    a1.showAndWait();
+                    return false;
+                }
+            }
+            addSuccess.showAndWait();
+            return true;
+        }
+
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 
     //Menu
@@ -324,10 +315,6 @@ public class GameUI extends Application {
                 bg.setFill(gradient);
             });
         }
-    }
-
-    public static void main(String[] args) {
-        launch(args);
     }
 
 }
