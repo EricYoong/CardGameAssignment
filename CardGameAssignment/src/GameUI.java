@@ -152,7 +152,6 @@ public class GameUI extends Application {
         itemExit.setOnMouseClicked(e -> System.exit(0));
 
         item2Player.setOnMouseClicked(e -> {
-            String tmpName;
             for (int i = 0; i < 2; i++) {
                 boolean nameExis = false;
                 while (nameExis == false) {
@@ -201,9 +200,6 @@ public class GameUI extends Application {
         });
 
         item4Player.setOnMouseClicked(e -> {
-
-            String tmpName;
-            Player tmpPlayer;
             for (int i = 0; i < 4; i++) {
                 boolean nameExis = false;
                 while (nameExis == false) {
