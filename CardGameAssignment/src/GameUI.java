@@ -1,5 +1,6 @@
 import javafx.animation.Timeline;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
@@ -134,33 +135,41 @@ public class GameUI extends Application {
         primaryStage.setScene(menuScene);
 
 
+        /*===BUTTON EVENT LISTENERS ===*/
+        player2Button.setOnAction(e -> {
+            primaryStage.setScene(gameScene);
+            primaryStage.setHeight(625);
+            primaryStage.setWidth(804);
+
+        });
+
+        player3Button.setOnAction(e -> {
+            primaryStage.setScene(gameScene);
+            primaryStage.setHeight(625);
+            primaryStage.setWidth(804);
+            resetGame(gc, previousX, player, dealer, gameOver, dealersTurn, betFinished);
+        });
+
+        player4Button.setOnAction(e -> {
+            primaryStage.setScene(gameScene);
+            primaryStage.setHeight(625);
+            primaryStage.setWidth(804);
+            resetGame(gc, previousX, player, dealer, gameOver, dealersTurn, betFinished);
+        });
+
+        instructionsButton.setOnAction(e -> primaryStage.setScene(instructionsScene));
+
+        exitButton.setOnAction(e -> {
+            Platform.exit();
+        });
+
+        backToMenuButton.setOnAction(e -> primaryStage.setScene(menuScene));
+
+        exitToMenuFromGameButton.setOnAction(e -> {
+            primaryStage.setScene(menuScene);
+        });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        Scene scene = new Scene();
         gameLoop.getKeyFrames().add(frame);
         gameLoop.play();
         primaryStage.show();
