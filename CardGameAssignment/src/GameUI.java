@@ -9,6 +9,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -23,6 +24,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -32,12 +34,16 @@ public class GameUI extends Application {
     private DeckOfCards deck;
     private ArrayList<Player> player;
 
+    private static int width;
+    private static int height;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         deck = new DeckOfCards();
         player = new ArrayList<Player>();
 
+        width = ((int) Toolkit.getDefaultToolkit().getScreenSize().getWidth());
+        height = ((int) Toolkit.getDefaultToolkit().getScreenSize().getHeight());
         /*Various boolean values needed throughout the game. Objects are needed
          instead of regular booleans because regular local booleans could not be referenced
          from inside the lambda expressions used for the event listeners and game loop
@@ -77,6 +83,8 @@ public class GameUI extends Application {
         Button toMenuFromScores = new Button("Back To Menu");
         Button createSet = new Button("Create Set");
         Button skipPlayer = new Button("Skip Player");
+        Button removeCard = new Button("Remove Card");
+        Button getDeckCard = new Button("Take one from deck");
 
         Button clearButton = new Button("Play Again");
         Button exitToMenuFromGameButton = new Button("Exit To Menu");
@@ -103,7 +111,7 @@ public class GameUI extends Application {
         /*Panes containing buttons and labels that sit on top of Canvases in the Groups
           This is done in order to have buttons and other JavaFX controls mixed in with Canvas graphics
           being drawn underneath*/
-        Pane gamePane = new Pane();
+        BorderPane gamePane = new BorderPane();
         Pane menuPane = new Pane();
         Pane instructionsPane = new Pane();
 
@@ -330,7 +338,20 @@ public class GameUI extends Application {
     }
 
     public static class cardBox extends StackPane{
-        public cardBox(){
+        public cardBox(Card c){
+
+        }
+    }
+
+    public static class handCards extends VBox{
+        public handCards(Player p){
+            ArrayList<cardBox> phand = new cardBox();
+            p.getCard();
+
+            for(int i = 0;i < p.getCard().size();i++){
+                phand = new cardBox(p.findCard(i));
+            }
+
 
         }
     }

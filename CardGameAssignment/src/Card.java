@@ -1,5 +1,15 @@
 
 public class Card implements Comparable<Card> {
+    //    Set a constance for the suits
+    enum Suits {
+        Spade, Heart, Club, Diamond
+    }
+
+    //    Set a constance for the Ranks
+    enum Ranks {
+        Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King
+    }
+
     private Suits mSuit;
     private Ranks mRank;
 
@@ -11,16 +21,6 @@ public class Card implements Comparable<Card> {
     public Card(Suits suit, Ranks rank) {
         this.mSuit = suit;
         this.mRank = rank;
-    }
-
-    //    Set a constance for the suits
-    public static enum Suits {
-        Spade, Heart, Club, Diamond
-    }
-
-    //    Set a constance for the Ranks
-    public static enum Ranks {
-        Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King
     }
 
     public Suits getSuits() {
