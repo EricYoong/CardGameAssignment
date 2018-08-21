@@ -29,12 +29,15 @@ import java.util.Optional;
 
 public class GameUI extends Application {
     //Object Player and the deck of card
-    private DeckOfCards deck = new DeckOfCards();
-    private ArrayList<Player> player = new ArrayList<Player>();
+    private DeckOfCards deck;
+    private ArrayList<Player> player;
 
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        deck = new DeckOfCards();
+        player = new ArrayList<Player>();
+
         /*Various boolean values needed throughout the game. Objects are needed
          instead of regular booleans because regular local booleans could not be referenced
          from inside the lambda expressions used for the event listeners and game loop
@@ -92,10 +95,10 @@ public class GameUI extends Application {
         playerScore.setFont(Font.font(null, FontWeight.BOLD, 26));
 
         Text playerName = new Text();
-        playerScore.setX(265);
-        playerScore.setY(210);
-        playerScore.setFill(Color.YELLOW);
-        playerScore.setFont(Font.font(null, FontWeight.BOLD, 26));
+        playerName.setX(265);
+        playerName.setY(210);
+        playerName.setFill(Color.YELLOW);
+        playerName.setFont(Font.font(null, FontWeight.BOLD, 26));
 
         /*Panes containing buttons and labels that sit on top of Canvases in the Groups
           This is done in order to have buttons and other JavaFX controls mixed in with Canvas graphics
@@ -154,7 +157,8 @@ public class GameUI extends Application {
         item2Player.setOnMouseClicked(e -> {
             for (int i = 0; i < 2; i++) {
                 boolean nameExis = false;
-                while (nameExis == false) {
+                boolean cancelInsert = false;
+                while (nameExis == false && cancelInsert == false) {
                     TextInputDialog dialog = new TextInputDialog("walter");
                     dialog.setTitle("Text Input Dialog");
                     dialog.setHeaderText("Look, a Text Input Dialog");
@@ -165,12 +169,17 @@ public class GameUI extends Application {
                         if (result.get() == null || result.get() == "" || result.get() == " ") {
                             emptyNameWarning.showAndWait();
                         } else {
-                            if(nameChecking(result.get(),existNameWarning)){
+                            if (nameChecking(result.get(), existNameWarning)) {
                                 player.add(new Player(result.get(), deck));
                                 nameExis = true;
                             }
                         }
+                    } else {
+                        cancelInsert = true;
                     }
+                }
+                if (cancelInsert == true) {
+                    break;
                 }
             }
         });
@@ -178,7 +187,8 @@ public class GameUI extends Application {
         item3Player.setOnMouseClicked(e -> {
             for (int i = 0; i < 3; i++) {
                 boolean nameExis = false;
-                while (nameExis == false) {
+                boolean cancelInsert = false;
+                while (nameExis == false && cancelInsert == false) {
                     TextInputDialog dialog = new TextInputDialog("walter");
                     dialog.setTitle("Text Input Dialog");
                     dialog.setHeaderText("Look, a Text Input Dialog");
@@ -189,12 +199,17 @@ public class GameUI extends Application {
                         if (result.get() == null || result.get() == "" || result.get() == " ") {
                             emptyNameWarning.showAndWait();
                         } else {
-                            if(nameChecking(result.get(),existNameWarning)){
+                            if (nameChecking(result.get(), existNameWarning)) {
                                 player.add(new Player(result.get(), deck));
                                 nameExis = true;
                             }
                         }
+                    } else {
+                        cancelInsert = true;
                     }
+                }
+                if (cancelInsert == true) {
+                    break;
                 }
             }
         });
@@ -202,7 +217,8 @@ public class GameUI extends Application {
         item4Player.setOnMouseClicked(e -> {
             for (int i = 0; i < 4; i++) {
                 boolean nameExis = false;
-                while (nameExis == false) {
+                boolean cancelInsert = false;
+                while (nameExis == false && cancelInsert == false) {
                     TextInputDialog dialog = new TextInputDialog("walter");
                     dialog.setTitle("Text Input Dialog");
                     dialog.setHeaderText("Look, a Text Input Dialog");
@@ -213,12 +229,17 @@ public class GameUI extends Application {
                         if (result.get() == null || result.get() == "" || result.get() == " ") {
                             emptyNameWarning.showAndWait();
                         } else {
-                            if(nameChecking(result.get(),existNameWarning)){
+                            if (nameChecking(result.get(), existNameWarning)) {
                                 player.add(new Player(result.get(), deck));
                                 nameExis = true;
                             }
                         }
+                    } else {
+                        cancelInsert = true;
                     }
+                }
+                if (cancelInsert == true) {
+                    break;
                 }
             }
         });
@@ -228,7 +249,7 @@ public class GameUI extends Application {
 
     }
 
-    public boolean nameChecking(String playerN, Alert a1){
+    public boolean nameChecking(String playerN, Alert a1) {
         Alert addSuccess = new Alert(Alert.AlertType.INFORMATION);
         addSuccess.setTitle("Information Dialog");
         addSuccess.setHeaderText("Look, an Information Dialog");
@@ -248,11 +269,6 @@ public class GameUI extends Application {
             addSuccess.showAndWait();
             return true;
         }
-
-    }
-
-    public static void main(String[] args) {
-        launch(args);
     }
 
     //Menu
@@ -267,7 +283,7 @@ public class GameUI extends Application {
 
         private Line createSeparator() {
             Line sep = new Line();
-            sep.setEndX(200);
+            sep.setEndX(230);
             sep.setStroke(Color.DARKGREY);
             return sep;
         }
@@ -282,12 +298,12 @@ public class GameUI extends Application {
                     new Stop(1, Color.DARKVIOLET)
             });
 
-            Rectangle bg = new Rectangle(200, 30);
+            Rectangle bg = new Rectangle(230, 45);
             bg.setOpacity(0.4);
 
             Text text = new Text(name);
             text.setFill(Color.DARKGREY);
-            text.setFont(Font.font("Tw Cen MT Condensed", FontWeight.SEMI_BOLD, 22));
+            text.setFont(Font.font("Lato", FontWeight.SEMI_BOLD, 30));
 
             setAlignment(Pos.CENTER);
             getChildren().addAll(bg, text);
@@ -312,5 +328,16 @@ public class GameUI extends Application {
             });
         }
     }
+
+    public static class cardBox extends StackPane{
+        public cardBox(){
+
+        }
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+
 
 }
