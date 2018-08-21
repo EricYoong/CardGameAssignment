@@ -9,6 +9,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -337,19 +338,207 @@ public class GameUI extends Application {
         }
     }
 
-    public static class cardBox extends StackPane{
-        public cardBox(Card c){
+    public static class cardBox {
+        Image img;
 
+        public cardBox(Card c) {
+            int suitValue = c.getSuits().ordinal();
+            int rankValue = c.getValue();
+            String url = "assets/images/cards/";
+            String ext = ".png";
+
+            if (suitValue == 0) {
+                switch (rankValue) {
+                    case 0:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 1:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 2:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 3:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 4:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 5:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 6:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 7:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 8:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 9:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 10:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 11:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 12:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    default:
+                        break;
+                }
+            } else if (suitValue == 1) {
+                switch (rankValue) {
+                    case 0:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 1:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 2:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 3:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 4:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 5:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 6:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 7:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 8:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 9:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 10:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 11:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 12:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    default:
+                        break;
+                }
+            } else if (suitValue == 2) {
+                switch (rankValue) {
+                    case 0:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 1:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 2:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 3:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 4:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 5:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 6:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 7:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 8:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 9:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 10:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 11:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 12:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    default:
+                        break;
+                }
+            } else if (suitValue == 3) {
+                switch (rankValue) {
+                    case 0:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 1:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 2:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 3:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 4:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 5:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 6:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 7:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 8:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 9:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 10:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 11:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    case 12:
+                        img = new Image(url + suitValue + rankValue + ext);
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+        }
+
+        public Image getImage() {
+            return img;
         }
     }
 
-    public static class handCards extends VBox{
-        public handCards(Player p){
-            ArrayList<cardBox> phand = new cardBox();
+    public static class handCards extends VBox {
+        public handCards(Player p) {
             p.getCard();
+            ArrayList<cardBox> phand = new ArrayList<cardBox>();
 
-            for(int i = 0;i < p.getCard().size();i++){
-                phand = new cardBox(p.findCard(i));
+            for (int i = 0; i < p.getCard().size(); i++) {
+                phand.add(new cardBox(p.findCard(i)));
             }
 
 
