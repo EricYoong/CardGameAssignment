@@ -12,6 +12,7 @@ public class Card implements Comparable<Card> {
 
     private Suits mSuit;
     private Ranks mRank;
+    private double angle;
 
     public Card() {
         super();
@@ -46,6 +47,22 @@ public class Card implements Comparable<Card> {
         int rankCompare = mRank.compareTo(c.mRank);
         return rankCompare != 0 ? rankCompare : mSuit.compareTo(c.mSuit);
     }
+
+    public String getImagePath(Card card)
+    {
+        return "CardGameAssignment/src/images/cards/" + card.getSuits().toString() + " (" + card.getValue() + ")" + ".png";
+    }
+
+    public void setAngle(double a)
+    {
+        angle = a;
+    }
+
+    public double getAngle()
+    {
+        return angle;
+    }
+
 
 }
 

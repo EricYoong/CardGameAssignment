@@ -1,3 +1,12 @@
+import javafx.scene.effect.BlurType;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -10,6 +19,13 @@ public class Player {
     private RankComparator rankComparator = new RankComparator();
     private SuitComparator suitComparator = new SuitComparator();
     private SetPlayerValidation valid = new SetPlayerValidation();
+
+    private final int maxNameLength = 10;
+    private final int fitHeight = 130;
+
+    private int drawAmt = 1;
+
+    private boolean cantPlay = false;
 
     public Player(String name, DeckOfCards d1) {
         handCard = new ArrayList<Card>();
@@ -53,6 +69,14 @@ public class Player {
         }
     }
 
+    public int getMaxNameLength() {
+        return maxNameLength;
+    }
+
+    public void setName(String name1) {
+        this.name = name1;
+    }
+
     public String getName() {
         return name;
     }
@@ -93,8 +117,31 @@ public class Player {
         return true;
     }
 
+    public boolean getSetbyCard(List<Card> tmpCard) {
+        if (tmpCard.size() < 2)
+            return false;
+
+        Collections.sort(tmpCard, rankComparator);
+
+        if (!valid.addSet(tmpCard, setCard)) {
+            return false;
+        }
+
+        for (int i = 0; i < tmpCard.size(); i++) {
+            handCard.remove(tmpCard.get(tmpCard.size() - 1 - i));
+        }
+        return true;
+    }
+
     public void addCards(DeckOfCards d1) {
         handCard.add(d1.pullRandom());
+    }
+
+    public void addCards2(ArrayList<Card> tmp) {
+        for (int i = 0; i < tmp.size(); i++) {
+            handCard.add(tmp.get(i));
+        }
+        tmp.clear();
     }
 
     public List<Card> getCard() {
@@ -157,5 +204,89 @@ public class Player {
             }
         } else
             return false;
+    }
+
+    public int handCardSize() {
+        return handCard.size();
+    }
+
+    // Display cards in hand
+    public HBox displayHand() throws FileNotFoundException {
+        HBox playerhandBox = new HBox();
+
+        for (int i = 0; i < handCard.size(); i++) {
+            Image cardImg = new Image
+                    (new FileInputStream(handCard.get(i).getImagePath(handCard.get(i))));
+
+            ImageView iv = (getCardIV(cardImg, handCard.get(i).getAngle()));
+
+            iv.getStyleClass().add("handCard");
+
+            playerhandBox.getChildren().add(iv);
+        }
+        return playerhandBox;
+    }
+
+    // Display cards in hand
+    public HBox displaysetHand(ArrayList<Card> tmp) throws FileNotFoundException {
+        HBox playerhandBox2 = new HBox();
+
+        for (int i = 0; i < tmp.size(); i++) {
+            Image cardImg = new Image
+                    (new FileInputStream(tmp.get(i).getImagePath(tmp.get(i))));
+
+            ImageView iv = (getCardIV(cardImg, tmp.get(i).getAngle()));
+
+            iv.getStyleClass().add("setCard");
+
+            playerhandBox2.getChildren().add(iv);
+        }
+        return playerhandBox2;
+    }
+
+    //Cover cards in hand
+    public HBox coverHand() throws FileNotFoundException {
+        HBox playerhandBox = new HBox();
+
+        for (int i = 0; i < handCard.size(); i++) {
+            Image cardImg = new Image
+                    (new FileInputStream("CardGameAssignment/src/images/card_back.png"));
+
+            playerhandBox.getChildren().add(getCardIV(cardImg, handCard.get(i).getAngle()));
+        }
+        return playerhandBox;
+    }
+
+    public ImageView getCardIV(Image image, double angle) {
+        ImageView cardIV = new ImageView(image);
+
+        DropShadow dShdw = new DropShadow(BlurType.GAUSSIAN, new Color(0, 0, 0, 0.65), 3.5, 0.25, 0, 0);
+        dShdw.setWidth(25);
+        dShdw.setHeight(25);
+
+        cardIV.setPreserveRatio(true);
+        cardIV.setFitHeight(130);
+        cardIV.setSmooth(true);
+        cardIV.setEffect(dShdw);
+
+        cardIV.setRotate(angle);
+
+        return cardIV;
+    }
+
+    public int getDrawAmt() {
+        return drawAmt;
+    }
+
+    public void setDrawAmt(int amt) {
+        drawAmt = amt;
+    }
+
+    public boolean isCantPlay() {
+        return cantPlay;
+    }
+
+    public void setCantPlay(boolean cantPlay) {
+        this.cantPlay = cantPlay;
     }
 }

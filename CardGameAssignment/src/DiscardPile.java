@@ -1,8 +1,12 @@
 import java.util.ArrayList;
 
 public class DiscardPile {
-    private ArrayList<Card> pileCard;
-    private ArrayList<Card> tmpPile;
+    protected ArrayList<Card> pileCard;
+    protected ArrayList<Card> tmpPile;
+
+    public DiscardPile(){
+        pileCard = new ArrayList<Card>();
+    }
 
     public DiscardPile(DeckOfCards d1) {
         pileCard = new ArrayList<Card>();
@@ -13,11 +17,19 @@ public class DiscardPile {
         pileCard.add(card);
     }
 
+    public int pileSize() {
+        return pileCard.size();
+    }
+
+    public Card getPile() {
+        return pileCard.get(pileCard.size() - 1);
+    }
+
     public void displayPile() {
         if (pileCard.isEmpty()) {
             System.out.println("There are no pile Card.");
         } else {
-            System.out.printf("|| %-60s||","The discard pile is: " + pileCard.get(pileCard.size() - 1).getRanks() + " " + pileCard.get(pileCard.size() - 1).getSuits());
+            System.out.printf("|| %-60s||", "The discard pile is: " + pileCard.get(pileCard.size() - 1).getRanks() + " " + pileCard.get(pileCard.size() - 1).getSuits());
             System.out.println(" ");
         }
     }

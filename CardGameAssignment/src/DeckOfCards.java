@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 public class DeckOfCards extends Card {
@@ -31,6 +32,10 @@ public class DeckOfCards extends Card {
         }
     }
 
+    public void shuffleDeck(){
+        Collections.shuffle(mCards);
+    }
+
     //    Get a random card
     public int randInt(int min, int max) {
         int randNum = mRandom.nextInt((max - min) + 1) + min;
@@ -38,7 +43,7 @@ public class DeckOfCards extends Card {
     }
 
     //    Get a random card and then remove from the deck
-    public Card pullRandom() {
+        public Card pullRandom() {
         if (mCards.isEmpty())
             return null;
 
